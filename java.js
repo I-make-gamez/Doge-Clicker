@@ -10,5 +10,5 @@ doge.addEventListener('click', function(){
 });
 
 u1.addEventListener('click', function(){
-    alert("Doge Factory.");
+    alert(window.outerHeight);
 });

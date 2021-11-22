@@ -13,7 +13,6 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border-bottom: 10px solid #000;
     z-index: 1;
 
 }
@@ -40,15 +39,15 @@ body{
 }
 
 .upgrades{
-    height: 92%;
+    height: 523px;
     width: 250px;
     position: fixed;
     left: 25px;
-    top: 32%;
-    transform: translate(-25px, -32%);
+    top: 206px;
+    transform: translate(-25px, -40%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-right: 10px solid #000;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .upgrades h1{
