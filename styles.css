@@ -50,6 +50,24 @@ body{
     overflow-y: scroll;
 }
 
+.stats{
+    height: calc(103vh - 60px);
+    width: 250px;
+    position: fixed;
+    right: 0px;
+    top: 37vh;
+    transform: translate(-0px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-left: 10px solid #000;
+    overflow-y: scroll;
+}
+
+.stats h1{
+    font-size: 40px;
+    padding-bottom: 25px;
+    border-bottom: 10px solid #000;
+}
+
 .upgrades h1{
     font-size: 30px;
 }

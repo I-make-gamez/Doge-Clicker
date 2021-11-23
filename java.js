@@ -1,21 +1,31 @@
 const doge = document.querySelector('.doge');
 const u1 = document.querySelector('.u1');
+const cpwr = document.querySelector('#cpwr');
 const dc = document.querySelector('#dc');
 
 var doco = 0;
+var clipo = 1
 
 function updateDC(){
     dc.innerHTML = `DogeCoin: ${doco}`;
 };
 
+function loadData(){
+    doco = parseInt(localStorage.getItem('dogco'));
+    dc.innerHTML = `DogeCoin: ${doco}`;
+};
+
 doge.addEventListener('click', function(){
-    doco += 1;
+    doco += clipo;
     updateDC();
+    localStorage.setItem('dogco', doco);
 });
 
 u1.addEventListener('click', function(){
     if(doco >= 100){
         doco -= 100
         updateDC();
+        clipo += 1
+        cpwr.innerHTML = `Clickpower: ${clipo}`
     }
 });
