@@ -4,11 +4,18 @@ const dc = document.querySelector('#dc');
 
 var doco = 0;
 
+function updateDC(){
+    dc.innerHTML = `DogeCoin: ${doco}`;
+};
+
 doge.addEventListener('click', function(){
     doco += 1;
-    dc.innerHTML = `DogeCoin: ${doco}`;
+    updateDC();
 });
 
 u1.addEventListener('click', function(){
-    alert(window.outerHeight);
+    if(doco >= 100){
+        doco -= 100
+        updateDC();
+    }
 });
