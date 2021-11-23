@@ -12,7 +12,10 @@ function updateDC(){
 
 function loadData(){
     doco = parseInt(localStorage.getItem('dogco'));
+    clipo = parseInt(localStorage.getItem('cpowr'));
     dc.innerHTML = `DogeCoin: ${doco}`;
+    cpwr.innerHTML = `Clickpower: ${clipo}`;
+
 };
 
 doge.addEventListener('click', function(){
@@ -25,7 +28,8 @@ u1.addEventListener('click', function(){
     if(doco >= 100){
         doco -= 100
         updateDC();
-        clipo += 1
+        clipo += 1;
+        localStorage.setItem('cpowr', clipo);
         cpwr.innerHTML = `Clickpower: ${clipo}`
     }
 });
