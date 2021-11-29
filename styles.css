@@ -23,6 +23,7 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 0;
 }
 
 .doge:active{
@@ -30,7 +31,7 @@ body{
     height: 260px;
 }
 
-#dc{
+.dc{
     font-size: 40px;
     position: fixed;
     top: 15%;
@@ -96,6 +97,14 @@ body{
 
 }
 
+.u4{
+    width: 250px;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#127376 0%, #08ceb4 100%);
+
+}
+
 .nav-bar {
     background: radial-gradient(#17ffff 0%, #071556 100%);
     width: 200%;
@@ -140,4 +149,23 @@ body{
   .nav-bar a.active {
     background-color: #d61212;
     color: white;
+  }
+
+  #delData{
+      font-size: 25px;
+      font-family: cursive;
+      color: white;
+      width: 250px;
+      padding: 25px;
+      position: fixed;
+      bottom: 3%;
+      left: 125px;
+      transform: translate(-125px, 3%);
+      border-top: 10px solid #000;
+      border-left: 1px solid #000;
+      background: radial-gradient(#761212 0%, #ce0808 100%);
+  }
+
+  #delData:hover{
+    background: radial-gradient(#621276 0%, #ce0cdf 100%);
   }

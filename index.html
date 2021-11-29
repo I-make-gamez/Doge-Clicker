@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,8 @@
 
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="loadData();">
+
+<body onload="loadVersion(); loadData();">
     <img class="doge" width="250px" height="250px" src="Assets/DOGE.png">
     <img class="doge2" width="250px" height="250px" src="Assets/DOGE.png">
 
@@ -29,28 +31,52 @@
             <p>Doge Factory gains<br>1% of Doge Party</p>
             <h3>Cost 10,000 DC</h3>
         </div>
+        <div class="u4">
+            <h2>Doge Moon Colony</h2>
+            <p>Instead of DSS gaining 1%,<br>it gains 2%</p>
+            <h3>Cost 50,000 DC</h3>
+        </div>
     </section>
 
     <section class="stats">
         <h1>Stats:</h1>
         <h2 id="cpwr">Clickpower: 1</h2><br><br>
-        <h2 id="Cps">Clicks Per Second: 0</h2><br><br><br><br><br><br><br>
-        <button id="delData">Delete Data</button>
-
+        <h2 id="cps">Clicks Per Second: 0</h2><br><br><br><br><br><br><br>
+        <button onclick="deleteData();" id="delData">Delete Data</button>
     </section>
 
-    <h1 id="dc">DogeCoin: 0</h1>
+    <h1 class="dc">DogeCoin: 0</h1>
 
     <div class="nav-bar">
         <a class="active" href="index.html">Home</a>
         <a href="https://github.com/I-make-gamez/Doge-Clicker">Source Code</a>
         <a href="https://github.com/I-make-gamez">I-make-gamez</a>
-        <a style="cursor:not-allowed;">
-          version:
+        <a class="vers" style="cursor:not-allowed;">
+            Version:
         </a>
-    
     </div>
 
+    <div class="cookie-banner" style="display: none">
+        <p>
+            By using our website, you agree to our
+            <a href="index.html">cookie policy</a>
+        </p>
+        <button class="close">Accept</button>
+    </div>
+    <script type="text/javascript" src="cookies.js"></script>
     <script type="text/javascript" src="java.js"></script>
+    <!-- Cookie Consent by https://www.PrivacyPolicies.com -->
+    <script type="text/javascript" src="//www.privacypolicies.com/public/cookie-consent/4.0.0/cookie-consent.js"
+        charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function () {
+            cookieconsent.run({ "notice_banner_type": "simple", "consent_type": "implied", "palette": "light", "language": "en", "page_load_consent_levels": ["strictly-necessary", "functionality", "tracking", "targeting"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "website_name": "Doge Clicker" });
+        });
+    </script>
+
+    <noscript>Cookie Consent by <a href="https://www.privacypolicies.com/privacy-policy-generator/"
+            rel="nofollow noopener">Privacy Policies Generator website</a></noscript>
+    <!-- End Cookie Consent -->
 </body>
+
 </html>
