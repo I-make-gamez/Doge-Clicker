@@ -1,12 +1,13 @@
 const doge = document.querySelector('.doge');
 const u1 = document.querySelector('.u1');
 const u2 = document.querySelector('.u2');
+const u3 = document.querySelector('.u3');
 const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 
-var ver = '0.2.2';
+var ver = '0.4.1';
 var page = window;
 const ask = page.prompt;
 
@@ -27,9 +28,9 @@ function cpsGo() {
 };
 
 function loadData() {
-    doco += Math.abs(readCookie('totalDc'));
+    doco = Math.abs(readCookie('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
-    clipo += Math.abs(readCookie('clickpower'));
+    clipo = Math.abs(readCookie('clickpower'));
     cpwr.innerHTML = `Clickpower: ${clipo}`
 };
 
@@ -58,9 +59,10 @@ doge.addEventListener('click', function () {
 
 u1.addEventListener('click', function () {
     if (doco >= 100) {
-        doco -= 100
-        dc.innerHTML = `DogeCoin: ${doco}`;
         clipo += 1;
+        doco -= 100
+        createCookie('totalDc', doco, 1000)
+        dc.innerHTML = `DogeCoin: ${doco}`;
         createCookie('clickpower', clipo, 1000);
         cpwr.innerHTML = `Clickpower: ${clipo}`
     }
@@ -78,6 +80,10 @@ u2.addEventListener('click', function () {
     }
 });
 
+u3.addEventListener('click', function(){
+    alert("Soon... Very soon")
+})
+
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
@@ -87,7 +93,6 @@ document.onkeydown = function (e) {
                 let total = ask(`Enter DogeCoin Needed.`)
                 doco += Math.abs(total);
                 dc.innerHTML = `DogeCoin: ${doco}`;
-
                 break;
             case ans = '2':
                 alert("You've Found The Secret!");
