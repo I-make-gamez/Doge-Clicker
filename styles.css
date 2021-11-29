@@ -39,6 +39,14 @@ body{
     transform: translate(-50%, -15%);
 }
 
+.dcCos{
+    font-size: 40px;
+    position: fixed;
+    top: 15%;
+    left: 70vw;
+    transform: translate(-50%, -15%);
+}
+
 .upgrades{
     height: calc(103vh - 60px);
     width: 250px;
@@ -49,6 +57,33 @@ body{
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-right: 10px solid #000;
     overflow-y: scroll;
+}
+
+.cos{
+    height: calc(103vh - 60px);
+    width: 40vw;
+    position: fixed;
+    left: 25px;
+    top: 37vh;
+    transform: translate(-25px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-right: 10px solid #000;
+    overflow-y: scroll;
+}
+
+.dogeCos{
+    position: fixed;
+    left: 70vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+.cos h1{
+    font-size: 50px;
+    padding-bottom: 50px;
+    border-bottom: 10px solid #000;
 }
 
 .stats{
