@@ -31,6 +31,12 @@ function cpsGo() {
     }, 1000)
 };
 
+function loadCosData() {
+    doco = Math.abs(readCookie('totalDc'));
+    dcCos.innerHTML = `DogeCoin: ${doco}`;
+
+};
+
 function loadData() {
     doco = Math.abs(readCookie('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
