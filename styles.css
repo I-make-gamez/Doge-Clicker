@@ -82,8 +82,6 @@ body{
 
 .cos h1{
     font-size: 50px;
-    padding-bottom: 50px;
-    border-bottom: 10px solid #000;
 }
 
 .stats{
@@ -204,3 +202,14 @@ body{
   #delData:hover{
     background: radial-gradient(#621276 0%, #ce0cdf 100%);
   }
+
+  .c1{
+    width: 40vw;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761271 0%, #c708ce 100%);
+}
+
+.c1 h1{
+    font-size: 25px;
+}

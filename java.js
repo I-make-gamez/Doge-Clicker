@@ -6,17 +6,26 @@ const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
+const c1 = document.querySelector('.c1');
+const dogeCos = document.querySelector('.dogeCos')
 const dcCos = document.querySelector('.dcCos');
-
 
 var ver = '0.4.1';
 var page = window;
 const ask = page.prompt;
 
+
 var doco = 0;
+var doco1 = 0;
 var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
+
+doge.addEventListener('click', function () {
+    doco += clipo;
+    dc.innerHTML = `DogeCoin: ${doco}`;
+    createCookie('totalDc', doco, 1000)
+});
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
@@ -26,21 +35,19 @@ function cpsGo() {
     setInterval(function () {
         doco += clipes;
         dc.innerHTML = `DogeCoin: ${doco}`;
-
     }, 1000)
-};
-
-function loadCosData() {
-    doco = Math.abs(readCookie('totalDc'));
-    dcCos.innerHTML = `DogeCoin: ${doco}`;
-
 };
 
 function loadData() {
     doco = Math.abs(readCookie('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
     clipo = Math.abs(readCookie('clickpower'));
-    cpwr.innerHTML = `Clickpower: ${clipo}`
+    if(clipo == 0){
+        clipo = 1;
+        cpwr.innerHTML = `Clickpower: ${clipo}`;
+    }else{
+        cpwr.innerHTML = `Clickpower: ${clipo}`;
+    }
 };
 
 function deleteData() {
@@ -59,12 +66,6 @@ function deleteData() {
             clipo = clipo
     };
 };
-
-doge.addEventListener('click', function () {
-    doco += clipo;
-    dc.innerHTML = `DogeCoin: ${doco}`;
-    createCookie('totalDc', doco, 1000)
-});
 
 u1.addEventListener('click', function () {
     if (doco >= 100) {
