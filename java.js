@@ -6,13 +6,11 @@ const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
-const c1 = document.querySelector('.c1');
-const dogeCos = document.querySelector('.dogeCos')
-const dcCos = document.querySelector('.dcCos');
 
 var ver = '0.4.1';
 var page = window;
 const ask = page.prompt;
+const abs = Math.abs;
 
 
 var doco = 0;
@@ -21,11 +19,12 @@ var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
 
-doge.addEventListener('click', function () {
+doge.addEventListener('click', function () {         
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
     createCookie('totalDc', doco, 1000)
 });
+
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
@@ -39,9 +38,9 @@ function cpsGo() {
 };
 
 function loadData() {
-    doco = Math.abs(readCookie('totalDc'));
+    doco = abs(readCookie('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
-    clipo = Math.abs(readCookie('clickpower'));
+    clipo = abs(readCookie('clickpower'));
     if(clipo == 0){
         clipo = 1;
         cpwr.innerHTML = `Clickpower: ${clipo}`;
@@ -100,8 +99,8 @@ document.onkeydown = function (e) {
         let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-1]`)
         switch (ans) {
             case ans = '1':
-                let total = ask(`Enter DogeCoin Needed.`)
-                doco += Math.abs(total);
+                var total = ask(`Enter DogeCoin Needed.`)
+                doco += abs(total);
                 dc.innerHTML = `DogeCoin: ${doco}`;
                 break;
             case ans = '2':

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Costumes</title>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="index.html">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
 </head>
 <body onload="loadVersion(); loadCosData();">
     <img class="dogeCos" width="250px" height="250px" src="Assets/DOGE.png">
@@ -20,9 +21,23 @@
         <div class="c1">
             <h2>Heavnly Doge</h2>
             <h3>Cost 5,000 DC</h3>
-            <img width="175px" src="Assets/hevanly-doge.png">
+            <img width="100px" src="Assets/hevanly-doge.png">
         </div>
         
+    </section>
+
+    <section class="sc">
+        <h1>Owned<br>Costumes:</h1>
+        <div class="D">
+            <h2>Doge (Default)</h2>
+            <h6 class="Dh6">[Equipped]</h6>
+            <img width="100px" src="Assets/DOGE.png">
+        </div>
+        <div class="HD">
+            <h2>Heavnly Doge</h2>
+            <h6 class="HDh6">[Equipped]</h6>
+            <img width="100px" src="Assets/hevanly-doge.png">
+        </div>
     </section>
 
     <div class="nav-bar">
@@ -33,10 +48,12 @@
         <a class="vers" style="cursor:not-allowed;">
             Version:
         </a>
+        <a class="cosData">Delete Data</a>     
     </div>
-    <script type="text/javascript" src="cookies.js"></script>
-    <script type="text/javascript" src="costumes.js"></script>
+    
     <script type="text/javascript" src="java.js"></script>
+    <script type="text/javascript" src="cos.js"></script>
+    <script type="text/javascript" src="cookies.js"></script>
 
     <!-- Cookie Consent by https://www.PrivacyPolicies.com -->
     <script type="text/javascript" src="//www.privacypolicies.com/public/cookie-consent/4.0.0/cookie-consent.js"

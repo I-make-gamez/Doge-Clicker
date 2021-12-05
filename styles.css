@@ -43,7 +43,7 @@ body{
     font-size: 40px;
     position: fixed;
     top: 15%;
-    left: 70vw;
+    left: 50vw;
     transform: translate(-50%, -15%);
 }
 
@@ -61,7 +61,7 @@ body{
 
 .cos{
     height: calc(103vh - 60px);
-    width: 40vw;
+    width: 250px;
     position: fixed;
     left: 25px;
     top: 37vh;
@@ -71,17 +71,34 @@ body{
     overflow-y: scroll;
 }
 
+.sc{
+    height: calc(103vh - 60px);
+    width: 250px;
+    position: fixed;
+    right: 0px;
+    top: 37vh;
+    transform: translate(0px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-left: 10px solid #000;
+    overflow-y: scroll;
+}
+
+
 .dogeCos{
     position: fixed;
-    left: 70vw;
-    top: 50%;
+    left: 50vw;
+    top: 50vh;
     transform: translate(-50%, -50%);
     z-index: 1;
 
 }
 
 .cos h1{
-    font-size: 50px;
+    font-size: 30px;
+}
+
+.sc h1{
+    font-size: 30px;
 }
 
 .stats{
@@ -204,7 +221,7 @@ body{
   }
 
   .c1{
-    width: 40vw;
+    width: 250px;
     border-top: 10px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761271 0%, #c708ce 100%);
@@ -212,4 +229,70 @@ body{
 
 .c1 h1{
     font-size: 25px;
+}
+
+.c1 img{
+    border: 5px solid #000;
+}
+
+
+.HD{
+    width: 250px;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#381276 0%, #5408ce 100%);
+}
+
+.HD h2{
+    margin-bottom: 2px;
+}
+
+.HD img{
+    border: 5px solid #000;
+}
+
+.HD h1{
+    font-size: 25px;
+}
+
+.D{
+    opacity: 1;
+    width: 250px;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#6f7612 0%, #ceaa08 100%);
+}
+.D h1{
+    font-size: 25px;
+}
+
+.HDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.Dh6{
+    opacity:1;
+    margin: 3px;
+    color: white;
+}
+
+.D h2{
+    margin-bottom: 2px;
+}
+
+.delCosData{
+    font-size: 25px;
+    font-family: cursive;
+    color: white;
+    width: 250px;
+    padding: 25px;
+    position: fixed;
+    bottom: 3%;
+    left: 125px;
+    transform: translate(-125px, 3%);
+    border-top: 10px solid #000;
+    border-left: 1px solid #000;
+    background: radial-gradient(#761212 0%, #ce0808 100%);
 }
