@@ -27,6 +27,10 @@ doge.addEventListener('click', function () {
     localStorage.setItem('totalDc', doco)
 });
 
+version.addEventListener('click', function(){
+    alert('CHANGELOG 0.5.0:\n\n1)Costumes!!!\n2)Doge Space Station incorporated!')
+})
+
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
@@ -61,6 +65,11 @@ function loadDogeCos() {
             break;
         case '1':
             doge.style.content = 'url(./Assets/hevanly-doge.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '5px solid #000'
+            break;
+        case '2':
+            doge.style.content = 'url(./Assets/fancy-doge.png)'
             doge.style.width = 'auto'
             doge.style.border = '5px solid #000'
             break;
@@ -105,7 +114,6 @@ u1.addEventListener('click', function () {
 
 u2.addEventListener('click', function () {
     if (doco >= 2000) {
-
         doco -= 2000;
         dc.innerHTML = `DogeCoin: ${doco}`;
         clipes += 1;
@@ -116,7 +124,12 @@ u2.addEventListener('click', function () {
 });
 
 u3.addEventListener('click', function(){
-    alert(Math.round(clipo / 100 * 10));
+    if (doco >= 10000) {
+        doco -= 10000;
+        dc.innerHTML = `DogeCoin: ${doco}`;
+        clipo += Math.round(clipo / 100 * 10);
+        cpwr.innerHTML = `Clickpower: ${clipo}`;
+    }
 })
 
 document.onkeydown = function (e) {

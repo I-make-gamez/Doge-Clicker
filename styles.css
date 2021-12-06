@@ -234,6 +234,21 @@ body{
     background: radial-gradient(#122176 0%, #0b08ce 100%);
 }
 
+.c3{
+    width: 250px;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761241 0%, #ce0875 100%);
+}
+
+.c3 h1{
+    font-size: 25px;
+}
+
+.c3 img{
+    border: 5px solid #000;
+}
+
 .c2 h1{
     font-size: 25px;
 }
@@ -260,7 +275,7 @@ body{
 }
 
 .FD{
-    opacity: 1;
+    opacity: 0;
     width: 250px;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
