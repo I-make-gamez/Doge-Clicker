@@ -227,8 +227,23 @@ body{
     background: radial-gradient(#761271 0%, #c708ce 100%);
 }
 
+.c2{
+    width: 250px;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#122176 0%, #0b08ce 100%);
+}
+
+.c2 h1{
+    font-size: 25px;
+}
+
 .c1 h1{
     font-size: 25px;
+}
+
+.c2 img{
+    border: 5px solid #000;
 }
 
 .c1 img{
@@ -243,6 +258,27 @@ body{
     border-bottom: 10px solid #000;
     background: radial-gradient(#381276 0%, #5408ce 100%);
 }
+
+.FD{
+    opacity: 1;
+    width: 250px;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#1e7612 0%, #08ce08 100%);
+}
+
+.FD h2{
+    margin-bottom: 2px;
+}
+
+.FD img{
+    border: 5px solid #000;
+}
+
+.FD h1{
+    font-size: 25px;
+}
+
 
 .HD h2{
     margin-bottom: 2px;
@@ -268,6 +304,12 @@ body{
 }
 
 .HDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.FDh6{
     opacity:0;
     margin: 3px;
     color: white;

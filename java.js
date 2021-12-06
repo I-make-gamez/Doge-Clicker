@@ -12,6 +12,8 @@ var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
 
+var selCos = '0'
+
 
 var doco = 0;
 var doco1 = 0;
@@ -49,6 +51,25 @@ function loadData() {
     }
 };
 
+function loadDogeCos() {
+    selCos = localStorage.getItem('cos')
+    switch(selCos){
+        case '0':
+            doge.style.content = 'url(./Assets/DOGE.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '0px solid #000'
+            break;
+        case '1':
+            doge.style.content = 'url(./Assets/hevanly-doge.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '5px solid #000'
+            break;
+
+    }
+    doco1 = Math.abs(localStorage.getItem('totalDc'));
+    dcCos.innerHTML = `DogeCoin: ${doco1}`;
+};
+
 function deleteData() {
     let ans = ask("Are you sure?\n[Y|N]")
     switch (ans) {
@@ -59,6 +80,11 @@ function deleteData() {
             clipo = 1;
             cpwr.innerHTML = `Clickpower: ${clipo}`
             localStorage.removeItem('clickpower');
+            selCos = '0'
+            localStorage.removeItem('cos')
+            doge.style.content = 'url(./Assets/DOGE.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '0px solid #000'
             break;
         case 'n' || 'N':
             doco = doco
@@ -102,6 +128,7 @@ document.onkeydown = function (e) {
                 var total = ask(`Enter DogeCoin Needed.`)
                 doco += abs(total);
                 dc.innerHTML = `DogeCoin: ${doco}`;
+                localStorage.setItem('totalDc', doco)
                 break;
             case ans = '2':
                 alert("You've Found The Secret!");

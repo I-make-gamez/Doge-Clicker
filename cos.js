@@ -8,23 +8,37 @@ const HDh6 = document.querySelector('.HDh6')
 const cosData = document.querySelector('.cosData')
 
 var selCos = '0';
+let c1Un = false;
 
 function loadCosData() {
     selCos = localStorage.getItem('cos')
-    if(selCos = '0'){
-        dogeCos.style.content = 'url(./Assets/DOGE.png)'
-        dogeCos.style.width = 'auto'
-        dogeCos.style.border = '0px solid #000'
-        Dh6.style.opacity = 1;
-        HDh6.style.opacity = 0;
-    }else if(selCos = '1'){
-        dogeCos.style.content = 'url(./Assets/hevanly-doge.png)'
-        dogeCos.style.width = 'auto'
-        dogeCos.style.border = '5px solid #000'
-        HDh6.style.opacity = 1;
-        Dh6.style.opacity = 0;
-        HD.style.opacity = 1;
+    c1Un = JSON.parse(localStorage.getItem('c1Un'))
+    switch(selCos){
+        case '0':
+            dogeCos.style.content = 'url(./Assets/DOGE.png)'
+            dogeCos.style.width = 'auto'
+            dogeCos.style.border = '0px solid #000'
+            Dh6.style.opacity = 1;
+            HDh6.style.opacity = 0;
+            break;
+        case '1':
+            HD.style.opacity = 1;
+            dogeCos.style.content = 'url(./Assets/hevanly-doge.png)'
+            dogeCos.style.width = 'auto'
+            dogeCos.style.border = '5px solid #000'
+            HDh6.style.opacity = 1;
+            Dh6.style.opacity = 0;
+            HD.style.opacity = 1;
+            break;
 
+    }
+    switch(c1Un){
+        case true:
+            HD.style.opacity = 1;
+            break;
+        case false:
+            HD.style.opacity = 0;
+            break;
     }
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
@@ -32,19 +46,19 @@ function loadCosData() {
 
 c1.addEventListener('click', function(){
     doco1 = Math.abs(localStorage.getItem('totalDc'));
-    if(doco1 >= 100){
+    if(doco1 >= 5000){
         HD.style.opacity = 1;
         doco1 = Math.abs(localStorage.getItem('totalDc'));
         doco1 -= 100
         dcCos.innerHTML = `DogeCoin: ${doco1}`;
         localStorage.setItem('totalDc', doco1)
+        c1Un = true;
+        localStorage.setItem('c1Un', c1Un)
     }
 })
 
 HD.addEventListener('click', function(){
     if(HD.style.opacity == 1){
-        localStorage.removeItem
-        selCos = '1';
         localStorage.setItem('cos', '1')
         dogeCos.style.content = 'url(./Assets/hevanly-doge.png)'
         dogeCos.style.width = 'auto'
@@ -55,8 +69,7 @@ HD.addEventListener('click', function(){
 });
 
 D.addEventListener('click', function(){
-    selCos = '0';
-    localStorage.setItem('cos', selCos)
+    localStorage.setItem('cos', '0')
     dogeCos.style.content = 'url(./Assets/DOGE.png)'
     dogeCos.style.width = 'auto'
     dogeCos.style.border = '0px solid #000'
@@ -76,6 +89,8 @@ cosData.addEventListener('click', function(){
             HD.style.opacity = 0;
             selCos = '0';
             localStorage.removeItem('cos')
+            c1Un = false;
+            localStorage.removeItem('c1Un')
             break;
         case 'n' || 'N':
             selCos = selCos;
