@@ -7,7 +7,7 @@ const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 
-var ver = '0.4.1';
+var ver = '0.5.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -22,7 +22,7 @@ var cpsok = 0;
 doge.addEventListener('click', function () {         
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
-    createCookie('totalDc', doco, 1000)
+    localStorage.setItem('totalDc', doco)
 });
 
 
@@ -38,9 +38,9 @@ function cpsGo() {
 };
 
 function loadData() {
-    doco = abs(readCookie('totalDc'));
+    doco = abs(localStorage.getItem('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
-    clipo = abs(readCookie('clickpower'));
+    clipo = abs(localStorage.getItem('clickpower'));
     if(clipo == 0){
         clipo = 1;
         cpwr.innerHTML = `Clickpower: ${clipo}`;
@@ -55,10 +55,10 @@ function deleteData() {
         case 'y' || 'Y':
             doco = 0;
             dc.innerHTML = `DogeCoin: ${doco}`;
-            eraseCookie('totalDc');
+            localStorage.removeItem('totalDc');
             clipo = 1;
             cpwr.innerHTML = `Clickpower: ${clipo}`
-            eraseCookie('clickpower');
+            localStorage.removeItem('clickpower');
             break;
         case 'n' || 'N':
             doco = doco
@@ -70,9 +70,9 @@ u1.addEventListener('click', function () {
     if (doco >= 100) {
         clipo += 1;
         doco -= 100
-        createCookie('totalDc', doco, 1000)
+        localStorage.setItem('totalDc', doco)
         dc.innerHTML = `DogeCoin: ${doco}`;
-        createCookie('clickpower', clipo, 1000);
+        localStorage.setItem('clickpower', clipo);
         cpwr.innerHTML = `Clickpower: ${clipo}`
     }
 });
@@ -90,7 +90,7 @@ u2.addEventListener('click', function () {
 });
 
 u3.addEventListener('click', function(){
-    alert(document.querySelector('.nav-bar').offsetHeight)
+    alert(Math.round(clipo / 100 * 10));
 })
 
 document.onkeydown = function (e) {

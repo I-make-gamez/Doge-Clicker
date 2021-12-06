@@ -133,7 +133,7 @@ body{
 
 .u2{
     width: 250px;
-    border-top: 10px solid #000;
+    border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761271 0%, #c708ce 100%);
 
@@ -141,7 +141,7 @@ body{
 
 .u3{
     width: 250px;
-    border-top: 10px solid #000;
+    border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#767412 0%, #cecb08 100%);
 
@@ -149,7 +149,7 @@ body{
 
 .u4{
     width: 250px;
-    border-top: 10px solid #000;
+    border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#127376 0%, #08ceb4 100%);
 
@@ -237,6 +237,7 @@ body{
 
 
 .HD{
+    opacity: 0;
     width: 250px;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
