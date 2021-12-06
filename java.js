@@ -5,6 +5,7 @@ const u3 = document.querySelector('.u3');
 const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
+const dcLvl = document.querySelector('.dcLvl')
 const version = document.querySelector('.vers');
 
 var ver = '0.5.0';
@@ -14,6 +15,7 @@ const abs = Math.abs;
 
 var selCos = '0'
 
+var i = 0
 
 var doco = 0;
 var doco1 = 0;
@@ -25,6 +27,8 @@ doge.addEventListener('click', function () {
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
     localStorage.setItem('totalDc', doco)
+    dcLvl.value = i + 1
+    i+=1
 });
 
 version.addEventListener('click', function(){

@@ -34,6 +34,21 @@ body{
 .dc{
     font-size: 40px;
     position: fixed;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+}
+
+.dcLvl{
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    -ms-progress-appearance: bar;
+}
+
+.dcLvlh3{
+    position: fixed;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -15%);
