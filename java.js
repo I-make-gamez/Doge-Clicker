@@ -5,17 +5,16 @@ const u3 = document.querySelector('.u3');
 const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
-const dcLvl = document.querySelector('.dcLvl')
 const version = document.querySelector('.vers');
 
-var ver = '0.5.0';
+var ver = '0.5.2';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
 
 var selCos = '0'
 
-var i = 0
+var mul = 10
 
 var doco = 0;
 var doco1 = 0;
@@ -32,7 +31,7 @@ doge.addEventListener('click', function () {
 });
 
 version.addEventListener('click', function(){
-    alert('CHANGELOG 0.5.0:\n\n1)Costumes!!!\n2)Doge Space Station incorporated!')
+    alert(`CHANGELOG ${ver}:\n1) 2 New Costumes!!!\n2) Doge Moon Colony incorporated!`)
 })
 
 
@@ -131,7 +130,7 @@ u3.addEventListener('click', function(){
     if (doco >= 10000) {
         doco -= 10000;
         dc.innerHTML = `DogeCoin: ${doco}`;
-        clipo += Math.round(clipo / 100 * 10);
+        clipo += Math.round(clipo / 100 * mul);
         cpwr.innerHTML = `Clickpower: ${clipo}`;
     }
 })
@@ -139,7 +138,7 @@ u3.addEventListener('click', function(){
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-1]`)
+        let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-2]`)
         switch (ans) {
             case ans = '1':
                 var total = ask(`Enter DogeCoin Needed.`)
@@ -148,6 +147,12 @@ document.onkeydown = function (e) {
                 localStorage.setItem('totalDc', doco)
                 break;
             case ans = '2':
+                var total = ask(`Enter Clickpower Needed`)
+                clipo += abs(total);
+                cpwr.innerHTML = `Clickpower: ${clipo}`
+                localStorage.setItem('clickpower', clipo)
+                break;
+            case ans = '3':
                 alert("You've Found The Secret!");
                 break;
         }
