@@ -1,26 +1,43 @@
 const c1 = document.querySelector('.c1')
 const c2 = document.querySelector('.c2')
+const c3 = document.querySelector('.c3')
 const D = document.querySelector('.D')
 const HD = document.querySelector('.HD')
 const FD = document.querySelector('.FD')
+const DoC = document.querySelector('.DoC')
 const dogeCos = document.querySelector('.dogeCos')
 const dcCos = document.querySelector('.dcCos')
 const Dh6 = document.querySelector('.Dh6')
 const HDh6 = document.querySelector('.HDh6')
 const FDh6 = document.querySelector('.FDh6')
+const DoCh6 = document.querySelector('.DoCh6')
 const cosData = document.querySelector('.cosData')
 
 var selCos = '0';
 let c1Un = false;
 let c2Un = false;
+let c3Un = false;
 
 function checkC2(){
     switch(c2Un){
         case true:
             FD.style.opacity = 1;
+            checkC3();
             break;
         case false:
             FD.style.opacity = 0;
+            checkC3();
+            break;
+    }
+}
+
+function checkC3(){
+    switch(c3Un){
+        case true:
+            DoC.style.opacity = 1;
+            break;
+        case false:
+            DoC.style.opacity = 0;
             break;
     }
 }
@@ -29,6 +46,7 @@ function loadCosData() {
     selCos = localStorage.getItem('cos')
     c1Un = JSON.parse(localStorage.getItem('c1Un'))
     c2Un = JSON.parse(localStorage.getItem('c2Un'))
+    c3Un = JSON.parse(localStorage.getItem('c3Un'))
     switch(selCos){
         case '0':
             dogeCos.style.content = 'url(./Assets/DOGE.png)'
@@ -37,6 +55,7 @@ function loadCosData() {
             Dh6.style.opacity = 1;
             HDh6.style.opacity = 0;
             FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 0;
             break;
         case '1':
             HD.style.opacity = 1;
@@ -46,6 +65,7 @@ function loadCosData() {
             HDh6.style.opacity = 1;
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 0;
             break;
         case '2':
             FD.style.opacity = 1;
@@ -55,7 +75,17 @@ function loadCosData() {
             HDh6.style.opacity = 0;
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 1;
-
+            DoCh6.style.opacity = 0;
+            break;
+        case '3':
+            DoC.style.opacity = 1;
+            dogeCos.style.content = 'url(./Assets/doges-cousin.png)'
+            dogeCos.style.width = 'auto'
+            dogeCos.style.border = '5px solid #000'
+            HDh6.style.opacity = 0;
+            Dh6.style.opacity = 0;
+            FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 1;
     }
     switch(c1Un){
         case true:
@@ -98,6 +128,19 @@ c2.addEventListener('click', function(){
     }
 })
 
+c3.addEventListener('click', function(){
+    doco1 = Math.abs(localStorage.getItem('totalDc'));
+    if(doco1 >= 100000){
+        DoC.style.opacity = 1;
+        doco1 = Math.abs(localStorage.getItem('totalDc'));
+        doco1 -= 100000
+        dcCos.innerHTML = `DogeCoin: ${doco1}`;
+        localStorage.setItem('totalDc', doco1)
+        c3Un = true;
+        localStorage.setItem('c3Un', c3Un)
+    }
+})
+
 HD.addEventListener('click', function(){
     if(HD.style.opacity == 1){
         localStorage.setItem('cos', '1')
@@ -107,6 +150,21 @@ HD.addEventListener('click', function(){
         HDh6.style.opacity = 1;
         Dh6.style.opacity = 0;
         FDh6.style.opacity = 0;
+        DoCh6.style.opacity = 0;
+
+    }
+});
+
+DoC.addEventListener('click', function(){
+    if(DoC.style.opacity == 1){
+        localStorage.setItem('cos', '3')
+        dogeCos.style.content = 'url(./Assets/doges-cousin.png)'
+        dogeCos.style.width = 'auto'
+        dogeCos.style.border = '5px solid #000'
+        HDh6.style.opacity = 0;
+        Dh6.style.opacity = 0;
+        FDh6.style.opacity = 0;
+        DoCh6.style.opacity = 1;
     }
 });
 
@@ -119,6 +177,8 @@ FD.addEventListener('click', function(){
         HDh6.style.opacity = 0;
         Dh6.style.opacity = 0;
         FDh6.style.opacity = 1;
+        DoCh6.style.opacity = 0;
+
     }
 });
 
@@ -130,6 +190,7 @@ D.addEventListener('click', function(){
     Dh6.style.opacity = 1;
     HDh6.style.opacity = 0;
     FDh6.style.opacity = 0;
+    DoCh6.style.opacity = 0;
 });
 
 cosData.addEventListener('click', function(){
@@ -142,14 +203,18 @@ cosData.addEventListener('click', function(){
             Dh6.style.opacity = 1;
             HDh6.style.opacity = 0;
             FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 0;
             HD.style.opacity = 0;
             FD.style.opacity = 0;
+            DoC.style.opacity = 0;
             selCos = '0';
             localStorage.removeItem('cos')
             c1Un = false;
             localStorage.removeItem('c1Un')
             c2Un = false;
             localStorage.removeItem('c2Un')
+            c3Un = false;
+            localStorage.removeItem('c3Un')
             break;
         case 'n' || 'N':
             selCos = selCos;

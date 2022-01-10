@@ -2,12 +2,13 @@ const doge = document.querySelector('.doge');
 const u1 = document.querySelector('.u1');
 const u2 = document.querySelector('.u2');
 const u3 = document.querySelector('.u3');
+const u4 = document.querySelector('.u4');
 const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 
-var ver = '0.5.2';
+var ver = '0.6.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -31,7 +32,8 @@ doge.addEventListener('click', function () {
 });
 
 version.addEventListener('click', function(){
-    alert(`CHANGELOG ${ver}:\n1) 2 New Costumes!!!\n2) Doge Moon Colony incorporated!`)
+    alert(`CHANGELOG: ${ver}:\n1) Doge's Cousin Added!!!\n2) Doge Moon Colony incorporated!`)
+    
 })
 
 
@@ -76,7 +78,11 @@ function loadDogeCos() {
             doge.style.width = 'auto'
             doge.style.border = '5px solid #000'
             break;
-
+        case '3':
+            doge.style.content = 'url(./Assets/doges-cousin.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '5px solid #000'
+            break;
     }
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
@@ -132,8 +138,18 @@ u3.addEventListener('click', function(){
         dc.innerHTML = `DogeCoin: ${doco}`;
         clipo += Math.round(clipo / 100 * mul);
         cpwr.innerHTML = `Clickpower: ${clipo}`;
+        localStorage.setItem('clickpower', clipo);
     }
 })
+
+u4.addEventListener('click', function(){
+    if (doco >= 50000) {
+        doco -= 50000;
+        dc.innerHTML = `DogeCoin: ${doco}`;
+        localStorage.setItem('totalDc', doco)
+        mul = 20;
+    }
+});
 
 document.onkeydown = function (e) {
     var e = e || page.event;

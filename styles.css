@@ -289,6 +289,14 @@ body{
     background: radial-gradient(#381276 0%, #5408ce 100%);
 }
 
+.DoC{
+    opacity: 0;
+    width: 250px;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761251 0%, #ce089d 100%);
+}
+
 .FD{
     opacity: 0;
     width: 250px;
@@ -299,6 +307,17 @@ body{
 
 .FD h2{
     margin-bottom: 2px;
+}
+
+.DoC h2{
+    margin-bottom: 2px;
+}
+.DoC img{
+    border: 5px solid #000;
+}
+
+.DoC h1{
+    font-size: 25px;
 }
 
 .FD img{
@@ -340,6 +359,12 @@ body{
 }
 
 .FDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.DoCh6{
     opacity:0;
     margin: 3px;
     color: white;
