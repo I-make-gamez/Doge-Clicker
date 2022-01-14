@@ -8,7 +8,7 @@ const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 
-var ver = '0.6.0';
+var ver = '0.7.1';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -23,19 +23,32 @@ var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
 
-doge.addEventListener('click', function () {         
+
+doge.addEventListener('click', function () {
+    animTest()
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
     localStorage.setItem('totalDc', doco)
     dcLvl.value = i + 1
-    i+=1
+    i += 1
 });
 
-version.addEventListener('click', function(){
-    alert(`CHANGELOG: ${ver}:\n1) Doge's Cousin Added!!!\n2) Doge Moon Colony incorporated!`)
-    
+version.addEventListener('click', function () {
+    alert(`CHANGELOG: ${ver}:\n1) Added an animation when you click on doge :D`)
+
 })
 
+function animTest() {
+    selCos = localStorage.getItem('cos')
+    if (selCos == '0') {
+        doge.style.content = "url(./Assets/DOGE2.png)"
+        setTimeout(function () {
+            doge.style.content = "url(./Assets/DOGE.png)"
+        }, 250)
+    } else {
+        return;
+    }
+}
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
@@ -52,17 +65,18 @@ function loadData() {
     doco = abs(localStorage.getItem('totalDc'));
     dc.innerHTML = `DogeCoin: ${doco}`;
     clipo = abs(localStorage.getItem('clickpower'));
-    if(clipo == 0){
+    if (clipo == 0) {
         clipo = 1;
         cpwr.innerHTML = `Clickpower: ${clipo}`;
-    }else{
+    } else {
         cpwr.innerHTML = `Clickpower: ${clipo}`;
     }
 };
 
 function loadDogeCos() {
+    const code = '1807';
     selCos = localStorage.getItem('cos')
-    switch(selCos){
+    switch (selCos) {
         case '0':
             doge.style.content = 'url(./Assets/DOGE.png)'
             doge.style.width = 'auto'
@@ -132,7 +146,7 @@ u2.addEventListener('click', function () {
     }
 });
 
-u3.addEventListener('click', function(){
+u3.addEventListener('click', function () {
     if (doco >= 10000) {
         doco -= 10000;
         dc.innerHTML = `DogeCoin: ${doco}`;
@@ -142,7 +156,7 @@ u3.addEventListener('click', function(){
     }
 })
 
-u4.addEventListener('click', function(){
+u4.addEventListener('click', function () {
     if (doco >= 50000) {
         doco -= 50000;
         dc.innerHTML = `DogeCoin: ${doco}`;
@@ -154,23 +168,28 @@ u4.addEventListener('click', function(){
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-2]`)
-        switch (ans) {
-            case ans = '1':
-                var total = ask(`Enter DogeCoin Needed.`)
-                doco += abs(total);
-                dc.innerHTML = `DogeCoin: ${doco}`;
-                localStorage.setItem('totalDc', doco)
-                break;
-            case ans = '2':
-                var total = ask(`Enter Clickpower Needed`)
-                clipo += abs(total);
-                cpwr.innerHTML = `Clickpower: ${clipo}`
-                localStorage.setItem('clickpower', clipo)
-                break;
-            case ans = '3':
-                alert("You've Found The Secret!");
-                break;
+        let coAns = ask('Enter Admin Code:')
+        if (coAns == code) {
+            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-2]`)
+            switch (ans) {
+                case ans = '1':
+                    var total = ask(`Enter DogeCoin Needed.`)
+                    doco += abs(total);
+                    dc.innerHTML = `DogeCoin: ${doco}`;
+                    localStorage.setItem('totalDc', doco)
+                    break;
+                case ans = '2':
+                    var total = ask(`Enter Clickpower Needed`)
+                    clipo += abs(total);
+                    cpwr.innerHTML = `Clickpower: ${clipo}`
+                    localStorage.setItem('clickpower', clipo)
+                    break;
+                case ans = '3':
+                    alert("You've Found The Secret!");
+                    break;
+            }
+
         }
+
     }
 };
