@@ -64,7 +64,7 @@ body{
 
 .upgrades{
     height: calc(103vh - 60px);
-    width: 250px;
+    width: 272px;
     position: fixed;
     left: 25px;
     top: 37vh;
@@ -76,7 +76,7 @@ body{
 
 .cos{
     height: calc(103vh - 60px);
-    width: 250px;
+    width: 272px;
     position: fixed;
     left: 25px;
     top: 37vh;
@@ -88,7 +88,7 @@ body{
 
 .sc{
     height: calc(103vh - 60px);
-    width: 250px;
+    width: 272px;
     position: fixed;
     right: 0px;
     top: 37vh;
@@ -118,7 +118,7 @@ body{
 
 .stats{
     height: calc(103vh - 60px);
-    width: 250px;
+    width: 272px;
     position: fixed;
     right: 0px;
     top: 37vh;

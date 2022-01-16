@@ -22,32 +22,33 @@ var doco1 = 0;
 var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
+let a1 = 0;
 
 
 doge.addEventListener('click', function () {
-    animTest()
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
     localStorage.setItem('totalDc', doco)
-    dcLvl.value = i + 1
-    i += 1
+    anim();
 });
 
 version.addEventListener('click', function () {
-    alert(`CHANGELOG: ${ver}:\n1) Added an animation when you click on doge :D`)
+    alert(`CHANGELOG: ${ver}:\n1) Added an animation when you click on doge :D\n2) Clicks per second now saves on reload`)
 
 })
 
-function animTest() {
+function anim() {
     selCos = localStorage.getItem('cos')
-    if (selCos == '0') {
-        doge.style.content = "url(./Assets/DOGE2.png)"
-        setTimeout(function () {
-            doge.style.content = "url(./Assets/DOGE.png)"
-        }, 250)
-    } else {
-        return;
-    }
+    switch(selCos){
+        case '0':
+            doge.style.content = "url(./Assets/DOGE2.png)"
+            setTimeout(function () {
+                doge.style.content = "url(./Assets/DOGE.png)"
+            }, 200)
+            break;
+        default:
+            break;
+    }    
 }
 
 function loadVersion() {
@@ -70,6 +71,15 @@ function loadData() {
         cpwr.innerHTML = `Clickpower: ${clipo}`;
     } else {
         cpwr.innerHTML = `Clickpower: ${clipo}`;
+    }
+    a1 = abs(localStorage.getItem('a1'));
+    if( a1 == 0){
+        clipes = 0;
+        cps.innerHTML = `Clicks Per Second: ${clipes}`;
+    }else{
+        clipes = abs(localStorage.getItem('clipes'))
+        cps.innerHTML = `Clicks Per Second: ${clipes}`;
+        cpsGo();
     }
 };
 
@@ -101,6 +111,8 @@ function loadDogeCos() {
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
+
+let code = localStorage.getItem('code')
 
 function deleteData() {
     let ans = ask("Are you sure?\n[Y|N]")
@@ -138,10 +150,15 @@ u1.addEventListener('click', function () {
 u2.addEventListener('click', function () {
     if (doco >= 2000) {
         doco -= 2000;
+        localStorage.setItem('totalDc', doco)
         dc.innerHTML = `DogeCoin: ${doco}`;
         clipes += 1;
+        localStorage.setItem('clipes', clipes)
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
         cpsok = 1;
+        let a1 = 1;
+        localStorage.setItem('a1', a1)
+        window.location.href = window.location.href;
         cpsGo();
     }
 });
@@ -149,6 +166,7 @@ u2.addEventListener('click', function () {
 u3.addEventListener('click', function () {
     if (doco >= 10000) {
         doco -= 10000;
+        localStorage.setItem('totalDc', doco)
         dc.innerHTML = `DogeCoin: ${doco}`;
         clipo += Math.round(clipo / 100 * mul);
         cpwr.innerHTML = `Clickpower: ${clipo}`;
@@ -159,6 +177,7 @@ u3.addEventListener('click', function () {
 u4.addEventListener('click', function () {
     if (doco >= 50000) {
         doco -= 50000;
+        localStorage.setItem('totalDc', doco)
         dc.innerHTML = `DogeCoin: ${doco}`;
         localStorage.setItem('totalDc', doco)
         mul = 20;
@@ -168,8 +187,8 @@ u4.addEventListener('click', function () {
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        let coAns = ask('Enter Admin Code:')
-        if (coAns == code) {
+        var coAns = ask('Enter Admin Code:')
+        if (coAns = code) {
             let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-2]`)
             switch (ans) {
                 case ans = '1':
