@@ -8,7 +8,7 @@ const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 
-var ver = '0.7.1';
+var ver = '0.7.2';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
