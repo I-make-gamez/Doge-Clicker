@@ -7,8 +7,10 @@ const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
+const change = document.querySelector('.changes');
+const ex = document.querySelector('.ex')
 
-var ver = '0.7.2';
+var ver = '0.7.3';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -33,9 +35,15 @@ doge.addEventListener('click', function () {
 });
 
 version.addEventListener('click', function () {
-    alert(`CHANGELOG: ${ver}:\n1) Added an animation when you click on doge :D\n2) Clicks per second now saves on reload`)
-
+    change.style.opacity = 1;
+    change.style.zIndex = 2;
 })
+
+ex.addEventListener('click', function(){
+    change.style.opacity = 0;
+    change.style.zIndex = 0;
+})
+
 
 function anim() {
     selCos = localStorage.getItem('cos')
@@ -61,6 +69,10 @@ function cpsGo() {
         dc.innerHTML = `DogeCoin: ${doco}`;
     }, 1000)
 };
+
+function reload(){
+    window.location.href = window.location.href
+}
 
 function loadData() {
     doco = abs(localStorage.getItem('totalDc'));
@@ -158,7 +170,7 @@ u2.addEventListener('click', function () {
         cpsok = 1;
         let a1 = 1;
         localStorage.setItem('a1', a1)
-        window.location.href = window.location.href;
+        reload();
         cpsGo();
     }
 });
@@ -188,8 +200,8 @@ document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code:')
-        if (coAns = code) {
-            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-2]`)
+        if (coAns == code) {
+            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-3]`)
             switch (ans) {
                 case ans = '1':
                     var total = ask(`Enter DogeCoin Needed.`)
@@ -204,6 +216,13 @@ document.onkeydown = function (e) {
                     localStorage.setItem('clickpower', clipo)
                     break;
                 case ans = '3':
+                    var total = ask(`Enter CPS Needed`)
+                    clipes += abs(total)
+                    cps.innerHTML = `Clicks Per Second: ${clipes}`
+                    localStorage.setItem('clipes', clipes)
+                    reload();
+                    break;
+                case ans = '4':
                     alert("You've Found The Secret!");
                     break;
             }

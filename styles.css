@@ -64,7 +64,7 @@ body{
 
 .upgrades{
     height: calc(103vh - 60px);
-    width: 272px;
+    width: 16.5vw;
     position: fixed;
     left: 25px;
     top: 37vh;
@@ -76,7 +76,7 @@ body{
 
 .cos{
     height: calc(103vh - 60px);
-    width: 272px;
+    width: 16.5vw;
     position: fixed;
     left: 25px;
     top: 37vh;
@@ -88,7 +88,7 @@ body{
 
 .sc{
     height: calc(103vh - 60px);
-    width: 272px;
+    width: 16.5vw;
     position: fixed;
     right: 0px;
     top: 37vh;
@@ -116,9 +116,38 @@ body{
     font-size: 30px;
 }
 
+.changes{
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;
+}
+
+.log{
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
+.ex{
+    width:auto;
+    width: 100%;
+    border-top: 10px solid;
+    background: radial-gradient(#761212 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+}
+
 .stats{
     height: calc(103vh - 60px);
-    width: 272px;
+    width: 16.5vw;
     position: fixed;
     right: 0px;
     top: 37vh;
@@ -139,7 +168,7 @@ body{
 }
 
 .u1{
-    width: 250px;
+    width: 16.5vw;
     border-top: 10px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#127647 0%, #08ce6b 100%);
@@ -147,7 +176,7 @@ body{
 }
 
 .u2{
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761271 0%, #c708ce 100%);
@@ -155,7 +184,7 @@ body{
 }
 
 .u3{
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#767412 0%, #cecb08 100%);
@@ -163,10 +192,18 @@ body{
 }
 
 .u4{
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#127376 0%, #08ceb4 100%);
+
+}
+
+.u5{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#764712 0%, #ce9908 100%);
 
 }
 
@@ -236,21 +273,21 @@ body{
   }
 
   .c1{
-    width: 250px;
+    width: 16.5vw;
     border-top: 10px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761271 0%, #c708ce 100%);
 }
 
 .c2{
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#122176 0%, #0b08ce 100%);
 }
 
 .c3{
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761241 0%, #ce0875 100%);
@@ -283,7 +320,7 @@ body{
 
 .HD{
     opacity: 0;
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#381276 0%, #5408ce 100%);
@@ -291,7 +328,7 @@ body{
 
 .DoC{
     opacity: 0;
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#761251 0%, #ce089d 100%);
@@ -299,7 +336,7 @@ body{
 
 .FD{
     opacity: 0;
-    width: 250px;
+    width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#1e7612 0%, #08ce08 100%);
@@ -343,7 +380,7 @@ body{
 
 .D{
     opacity: 1;
-    width: 250px;
+    width: 16.5vw;
     border-top: 10px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#6f7612 0%, #ceaa08 100%);
