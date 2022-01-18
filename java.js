@@ -3,14 +3,15 @@ const u1 = document.querySelector('.u1');
 const u2 = document.querySelector('.u2');
 const u3 = document.querySelector('.u3');
 const u4 = document.querySelector('.u4');
+const u5 = document.querySelector('.u5');
 const cpwr = document.querySelector('#cpwr');
 const cps = document.querySelector('#cps');
 const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 const change = document.querySelector('.changes');
-const ex = document.querySelector('.ex')
+const ex = document.querySelector('.ex');
 
-var ver = '0.7.3';
+var ver = 'B-0.7.3';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -18,6 +19,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var mul = 10
+var mul2 = 10;
 
 var doco = 0;
 var doco1 = 0;
@@ -67,6 +69,7 @@ function cpsGo() {
     setInterval(function () {
         doco += clipes;
         dc.innerHTML = `DogeCoin: ${doco}`;
+        anim();
     }, 1000)
 };
 
@@ -195,6 +198,17 @@ u4.addEventListener('click', function () {
         mul = 20;
     }
 });
+
+u5.addEventListener('click', function () {
+    if (doco >= 75000) {
+        doco -= 75000;
+        localStorage.setItem('totalDc', doco)
+        dc.innerHTML = `DogeCoin: ${doco}`;
+        clipes += Math.round(clipes / 100 * mul2);
+        cps.innerHTML = `Clicks Per Second: ${clipes}`;
+        localStorage.setItem('clipes', clipes);
+    }
+})
 
 document.onkeydown = function (e) {
     var e = e || page.event;
