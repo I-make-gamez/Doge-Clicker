@@ -209,7 +209,7 @@ body{
 
 .nav-bar {
     background: radial-gradient(#17ffff 0%, #071556 100%);
-    width: 200%;
+    width: 200vw;
     height: auto;
     text-align: center;
     overflow: hidden;
