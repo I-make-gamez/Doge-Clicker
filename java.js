@@ -13,6 +13,7 @@ const ex = document.querySelector('.ex');
 const log = document.querySelector('.log');
 const ne = document.querySelector('.ne');
 const wat = document.querySelector('.wat');
+const bk = document.querySelector('.bark')
 
 var ver = 'B-0.8.0';
 var page = window;
@@ -93,6 +94,9 @@ function cpsGo() {
             doco += clipes;
             dc.innerHTML = `DogeCoin: ${doco}`;
             anim();
+        }else{
+            a1 = 0;
+            localStorage.setItem('a1', a1)
         }
     }, 1000)
 };
@@ -154,6 +158,12 @@ function loadDogeCos() {
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
+
+function bark(){
+    setInterval(function(){
+        bk
+    }, 1000)
+}
 
 let code = localStorage.getItem('code')
 

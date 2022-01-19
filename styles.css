@@ -471,3 +471,10 @@ body{
     border-left: 1px solid #000;
     background: radial-gradient(#761212 0%, #ce0808 100%);
 }
+
+.bk{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
