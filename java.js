@@ -42,6 +42,7 @@ doge.addEventListener('click', function () {
     dc.innerHTML = `DogeCoin: ${doco}`;
     localStorage.setItem('totalDc', doco)
     anim();
+    bark();
 });
 
 version.addEventListener('click', function () {
@@ -68,6 +69,9 @@ ne.addEventListener('click', function () {
     }
 })
 
+function rnd(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
 function anim() {
     selCos = localStorage.getItem('cos')
@@ -87,6 +91,9 @@ function loadVersion() {
     version.innerHTML = `Version: ${ver}`
     log.innerHTML = `Changelog: ${ver}`
 };
+
+var vh = document.innerHeight
+var vw = window.innerWidth
 
 function cpsGo() {
     setInterval(function () {
@@ -160,9 +167,8 @@ function loadDogeCos() {
 };
 
 function bark(){
-    setInterval(function(){
-        bk
-    }, 1000)
+    bk.style.top = JSON.stringify(rnd(100, vh)) + "px"
+    
 }
 
 let code = localStorage.getItem('code')
