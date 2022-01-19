@@ -1,22 +1,26 @@
 const c1 = document.querySelector('.c1')
 const c2 = document.querySelector('.c2')
 const c3 = document.querySelector('.c3')
+const c4 = document.querySelector('.c4')
 const D = document.querySelector('.D')
 const HD = document.querySelector('.HD')
 const FD = document.querySelector('.FD')
 const DoC = document.querySelector('.DoC')
+const CH = document.querySelector('.CH')
 const dogeCos = document.querySelector('.dogeCos')
 const dcCos = document.querySelector('.dcCos')
 const Dh6 = document.querySelector('.Dh6')
 const HDh6 = document.querySelector('.HDh6')
 const FDh6 = document.querySelector('.FDh6')
 const DoCh6 = document.querySelector('.DoCh6')
+const CHh6 = document.querySelector('.CHh6')
 const cosData = document.querySelector('.cosData')
 
 var selCos = '0';
 let c1Un = false;
 let c2Un = false;
 let c3Un = false;
+let c4Un = false;
 
 function checkC2(){
     switch(c2Un){
@@ -35,9 +39,22 @@ function checkC3(){
     switch(c3Un){
         case true:
             DoC.style.opacity = 1;
+            checkC4();
             break;
         case false:
             DoC.style.opacity = 0;
+            checkC4();
+            break;
+    }
+}
+
+function checkC4(){
+    switch(c4Un){
+        case true:
+            CH.style.opacity = 1;
+            break;
+        case false:
+            CH.style.opacity = 0;
             break;
     }
 }
@@ -47,6 +64,9 @@ function loadCosData() {
     c1Un = JSON.parse(localStorage.getItem('c1Un'))
     c2Un = JSON.parse(localStorage.getItem('c2Un'))
     c3Un = JSON.parse(localStorage.getItem('c3Un'))
+    c4Un = JSON.parse(localStorage.getItem('c4Un'))
+    doco1 = Math.abs(localStorage.getItem('totalDc'));
+    dcCos.innerHTML = `DogeCoin: ${doco1}`;
     switch(selCos){
         case '0':
             dogeCos.style.content = 'url(./Assets/DOGE.png)'
@@ -56,6 +76,7 @@ function loadCosData() {
             HDh6.style.opacity = 0;
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 0;
             break;
         case '1':
             HD.style.opacity = 1;
@@ -66,6 +87,7 @@ function loadCosData() {
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 0;
             break;
         case '2':
             FD.style.opacity = 1;
@@ -76,6 +98,7 @@ function loadCosData() {
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 1;
             DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 0;
             break;
         case '3':
             DoC.style.opacity = 1;
@@ -86,6 +109,19 @@ function loadCosData() {
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 1;
+            CHh6.style.opacity = 0;
+            break;
+        case '4':
+            CH.style.opacity = 1;
+            dogeCos.style.content = 'url(./Assets/cheems.png)'
+            dogeCos.style.width = 'auto'
+            dogeCos.style.border = 'none'
+            HDh6.style.opacity = 0;
+            Dh6.style.opacity = 0;
+            FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 1;
+            break;
     }
     switch(c1Un){
         case true:
@@ -97,9 +133,6 @@ function loadCosData() {
             checkC2();
             break;
     }
-    
-    doco1 = Math.abs(localStorage.getItem('totalDc'));
-    dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
 
 c1.addEventListener('click', function(){
@@ -141,6 +174,19 @@ c3.addEventListener('click', function(){
     }
 })
 
+c4.addEventListener('click', function(){
+    doco1 = Math.abs(localStorage.getItem('totalDc'));
+    if(doco1 >= 250000){
+        CH.style.opacity = 1;
+        doco1 = Math.abs(localStorage.getItem('totalDc'));
+        doco1 -= 250000
+        dcCos.innerHTML = `DogeCoin: ${doco1}`;
+        localStorage.setItem('totalDc', doco1)
+        c4Un = true;
+        localStorage.setItem('c4Un', c4Un)
+    }
+})
+
 HD.addEventListener('click', function(){
     if(HD.style.opacity == 1){
         localStorage.setItem('cos', '1')
@@ -151,7 +197,22 @@ HD.addEventListener('click', function(){
         Dh6.style.opacity = 0;
         FDh6.style.opacity = 0;
         DoCh6.style.opacity = 0;
+        CHh6.style.opacity = 0;
 
+    }
+});
+
+CH.addEventListener('click', function(){
+    if(CH.style.opacity == 1){
+        localStorage.setItem('cos', '4')
+        dogeCos.style.content = 'url(./Assets/cheems.png)'
+        dogeCos.style.width = 'auto'
+        dogeCos.style.border = 'none'
+        HDh6.style.opacity = 0;
+        Dh6.style.opacity = 0;
+        FDh6.style.opacity = 0;
+        DoCh6.style.opacity = 0;
+        CHh6.style.opacity = 1;
     }
 });
 
@@ -165,6 +226,8 @@ DoC.addEventListener('click', function(){
         Dh6.style.opacity = 0;
         FDh6.style.opacity = 0;
         DoCh6.style.opacity = 1;
+        CHh6.style.opacity = 0;
+
     }
 });
 
@@ -178,6 +241,7 @@ FD.addEventListener('click', function(){
         Dh6.style.opacity = 0;
         FDh6.style.opacity = 1;
         DoCh6.style.opacity = 0;
+        CHh6.style.opacity = 0;
 
     }
 });
@@ -191,6 +255,8 @@ D.addEventListener('click', function(){
     HDh6.style.opacity = 0;
     FDh6.style.opacity = 0;
     DoCh6.style.opacity = 0;
+    CHh6.style.opacity = 0;
+
 });
 
 cosData.addEventListener('click', function(){
@@ -204,9 +270,11 @@ cosData.addEventListener('click', function(){
             HDh6.style.opacity = 0;
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 0;
             HD.style.opacity = 0;
             FD.style.opacity = 0;
             DoC.style.opacity = 0;
+            CH.style.opacity = 0;
             selCos = '0';
             localStorage.removeItem('cos')
             c1Un = false;
@@ -215,6 +283,9 @@ cosData.addEventListener('click', function(){
             localStorage.removeItem('c2Un')
             c3Un = false;
             localStorage.removeItem('c3Un')
+            c4Un = false;
+            localStorage.removeItem('c4Un')
+
             break;
         case 'n' || 'N':
             selCos = selCos;

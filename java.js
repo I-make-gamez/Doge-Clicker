@@ -10,8 +10,9 @@ const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 const change = document.querySelector('.changes');
 const ex = document.querySelector('.ex');
-const log = document.querySelector('.log')
-const ne = document.querySelector('.ne')
+const log = document.querySelector('.log');
+const ne = document.querySelector('.ne');
+const wat = document.querySelector('.wat');
 
 var ver = 'B-0.8.0';
 var page = window;
@@ -19,6 +20,9 @@ const ask = page.prompt;
 const abs = Math.abs;
 
 var selCos = '0'
+
+var wtuss = wat.innerHTML
+var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes'
 
 var mul = 10
 var mul2 = 10;
@@ -44,25 +48,29 @@ version.addEventListener('click', function () {
     change.style.zIndex = 2;
 })
 
-ex.addEventListener('click', function(){
+ex.addEventListener('click', function () {
     change.style.opacity = 0;
     change.style.zIndex = 0;
 })
 
-ne.addEventListener('click', function(){
-    if(nxt = 0){
+ne.addEventListener('click', function () {
+    if (nxt === 0) {
         nxt = 1
         ne.innerHTML = 'Back'
-    }else{
+        wat.innerHTML = wtass;
+        log.innerHTML = `Alerts for ${ver}`
+    } else if (nxt = 1) {
         nxt = 0
         ne.innerHTML = 'Next'
+        wat.innerHTML = wtuss;
+        log.innerHTML = `Changelog: ${ver}`
     }
 })
 
 
 function anim() {
     selCos = localStorage.getItem('cos')
-    switch(selCos){
+    switch (selCos) {
         case '0':
             doge.style.content = "url(./Assets/DOGE2.png)"
             setTimeout(function () {
@@ -71,7 +79,7 @@ function anim() {
             break;
         default:
             break;
-    }    
+    }
 }
 
 function loadVersion() {
@@ -81,13 +89,15 @@ function loadVersion() {
 
 function cpsGo() {
     setInterval(function () {
-        doco += clipes;
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        anim();
+        if(a1 === 1){
+            doco += clipes;
+            dc.innerHTML = `DogeCoin: ${doco}`;
+            anim();
+        }
     }, 1000)
 };
 
-function reload(){
+function reload() {
     window.location.href = window.location.href
 }
 
@@ -102,10 +112,10 @@ function loadData() {
         cpwr.innerHTML = `Clickpower: ${clipo}`;
     }
     a1 = abs(localStorage.getItem('a1'));
-    if( a1 == 0){
+    if (a1 === 0) {
         clipes = 0;
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
-    }else{
+    } else {
         clipes = abs(localStorage.getItem('clipes'))
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
         cpsGo();
@@ -136,6 +146,10 @@ function loadDogeCos() {
             doge.style.width = 'auto'
             doge.style.border = '5px solid #000'
             break;
+        case '4':
+            doge.style.content = 'url(./Assets/cheems.png)'
+            doge.style.width = 'auto'
+            doge.style.border ='0px solid #000'
     }
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
@@ -233,7 +247,7 @@ document.onkeydown = function (e) {
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code:')
         if (coAns == code) {
-            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-3]`)
+            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-4]`)
             switch (ans) {
                 case ans = '1':
                     var total = ask(`Enter DogeCoin Needed.`)
@@ -255,7 +269,8 @@ document.onkeydown = function (e) {
                     reload();
                     break;
                 case ans = '4':
-                    alert("You've Found The Secret!");
+                    a1 = 0;
+                    localStorage.setItem('a1', a1)
                     break;
             }
 
