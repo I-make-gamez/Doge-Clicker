@@ -140,7 +140,16 @@ body{
     width:auto;
     width: 100%;
     border-top: 10px solid;
-    background: radial-gradient(#761212 0%, #df0c0c 100%);
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+}
+
+.ne{
+    width:auto;
+    width: 100%;
+    border-top: 10px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
     font-family: cursive;
     outline: none;
 }

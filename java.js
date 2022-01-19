@@ -10,8 +10,10 @@ const dc = document.querySelector('.dc');
 const version = document.querySelector('.vers');
 const change = document.querySelector('.changes');
 const ex = document.querySelector('.ex');
+const log = document.querySelector('.log')
+const ne = document.querySelector('.ne')
 
-var ver = 'B-0.7.3';
+var ver = 'B-0.8.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -20,6 +22,7 @@ var selCos = '0'
 
 var mul = 10
 var mul2 = 10;
+var nxt = 0;
 
 var doco = 0;
 var doco1 = 0;
@@ -46,6 +49,16 @@ ex.addEventListener('click', function(){
     change.style.zIndex = 0;
 })
 
+ne.addEventListener('click', function(){
+    if(nxt = 0){
+        nxt = 1
+        ne.innerHTML = 'Back'
+    }else{
+        nxt = 0
+        ne.innerHTML = 'Next'
+    }
+})
+
 
 function anim() {
     selCos = localStorage.getItem('cos')
@@ -63,6 +76,7 @@ function anim() {
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
+    log.innerHTML = `Changelog: ${ver}`
 };
 
 function cpsGo() {
@@ -139,11 +153,15 @@ function deleteData() {
             clipo = 1;
             cpwr.innerHTML = `Clickpower: ${clipo}`
             localStorage.removeItem('clickpower');
-            selCos = '0'
             localStorage.removeItem('cos')
+            selCos = '0'
             doge.style.content = 'url(./Assets/DOGE.png)'
             doge.style.width = 'auto'
             doge.style.border = '0px solid #000'
+            localStorage.removeItem('clipes')
+            clipes = 0;
+            a1 = 0;
+            cps.innerHTML = `Clicks Per Second: ${clipes}`;
             break;
         case 'n' || 'N':
             doco = doco
