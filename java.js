@@ -13,9 +13,8 @@ const ex = document.querySelector('.ex');
 const log = document.querySelector('.log');
 const ne = document.querySelector('.ne');
 const wat = document.querySelector('.wat');
-const bk = document.querySelector('.bark')
 
-var ver = 'B-0.8.0';
+var ver = 'B-0.8.1';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -23,7 +22,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes'
+var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?'
 
 var mul = 10
 var mul2 = 10;
@@ -59,11 +58,13 @@ ne.addEventListener('click', function () {
     if (nxt === 0) {
         nxt = 1
         ne.innerHTML = 'Back'
+        wat.innerHTML = '';
         wat.innerHTML = wtass;
         log.innerHTML = `Alerts for ${ver}`
-    } else if (nxt = 1) {
+    } else if (nxt === 1) {
         nxt = 0
         ne.innerHTML = 'Next'
+        wat.innerHTML = '';
         wat.innerHTML = wtuss;
         log.innerHTML = `Changelog: ${ver}`
     }
@@ -93,7 +94,7 @@ function loadVersion() {
 };
 
 var vh = document.innerHeight
-var vw = window.innerWidth
+var vw = document.innerWidth
 
 function cpsGo() {
     setInterval(function () {
@@ -167,8 +168,7 @@ function loadDogeCos() {
 };
 
 function bark(){
-    bk.style.top = JSON.stringify(rnd(100, vh)) + "px"
-    
+
 }
 
 let code = localStorage.getItem('code')
