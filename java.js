@@ -51,6 +51,18 @@ doge.addEventListener('click', function () {
     bark();
 });
 
+function createAlert(wts){
+    wtpss.innerHTML = wts;
+    pua.style.opacity = 1;
+    pua.style.zIndex = 2;
+}
+
+function wait(time){
+    setTimeout(function(){
+     return;   
+    }, time)
+}
+
 version.addEventListener('click', function () {
     change.style.opacity = 1;
     change.style.zIndex = 2;
@@ -69,10 +81,20 @@ puaex.addEventListener('click', function(){
 pw.addEventListener('click', function(){
     if(cbda === 0){
         cbda = 1;
-        wtpss.innerHTML = wtpuss;
-        pua.style.opacity = 1;
-        pua.style.zIndex = 2;
         localStorage.setItem('cbda', cbda)
+        createAlert(wtpuss);
+        clipo = clipo * 2;
+        cpwr.innerHTML = `Clickpower: ${clipo}`
+        wait(10000)
+        clipo = clipo / 2;
+        cpwr.innerHTML = `Clickpower: ${clipo}`
+        return;
+    }else{
+        clipo += clipo;
+        cpwr.innerHTML = `Clickpower: ${clipo}`
+        wait(10000)
+        clipo -= clipo;
+        return;
     }
 })
 
@@ -189,10 +211,6 @@ function loadDogeCos() {
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
-
-function bark(){
-
-}
 
 let code = localStorage.getItem('code')
 
