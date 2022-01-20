@@ -15,7 +15,7 @@ body{
 .doge{
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: 55%;
     transform: translate(-50%, -50%);
     z-index: 1;
 
@@ -25,7 +25,7 @@ body{
     filter: blur(50px);
     position: fixed;
     left: 50%;
-    top: 50%;
+    top: 55%;
     transform: translate(-50%, -50%);
     z-index: 0;
 }
@@ -38,7 +38,7 @@ body{
 .dc{
     font-size: 40px;
     position: fixed;
-    top: 16%;
+    top: 21%;
     left: 50%;
     transform: translate(-50%, -15%);
 }
@@ -282,6 +282,14 @@ body{
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
     background: radial-gradient(#764712 0%, #ce9908 100%);
+
+}
+
+.u6{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#561276 0%, #086ece 100%);
 
 }
 

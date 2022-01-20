@@ -18,7 +18,7 @@ const wtpss = document.querySelector('.wtpuss')
 const pua = document.querySelector('.pua')
 const pw = document.querySelector('.pw')
 
-var ver = 'B-0.9.0';
+var ver = 'B-0.9.1';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
