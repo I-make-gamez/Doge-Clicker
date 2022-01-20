@@ -74,6 +74,28 @@ body{
     overflow-y: scroll;
 }
 
+.pu{
+    z-index: -1;
+    height: 100px;
+    width: 67vw;
+    position: fixed;
+    left: 17%;
+    top: 0px;
+    transform: translate(-25px, -50);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-bottom: 10px solid #000;
+    overflow-y: scroll;
+}
+
+.pudiv{
+    float: left;
+    background: radial-gradient(#5f1276 0%, #bc0cdf 100%);
+    top: 50%;
+    padding-bottom: 25px;
+    border-right: 10px solid #000;
+}
+
+
 .cos{
     height: calc(103vh - 60px);
     width: 16.5vw;
@@ -133,6 +155,30 @@ body{
     overflow-y: scroll;
 }
 
+.pua{
+    height: 250px;
+    width: 500px;
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;
+}
+
+.puah1{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
 .log{
     padding-bottom: 15px;
     border-bottom: 10px solid #000;
@@ -156,6 +202,21 @@ body{
     background: radial-gradient(#b11313 0%, #df0c0c 100%);
     font-family: cursive;
     outline: none;
+}
+
+.puaex{
+    width:auto;
+    width: 100%;
+    height: 50px;
+    border-top: 10px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    transform: translate(-50, 0);
+
 }
 
 .stats{

@@ -13,8 +13,12 @@ const ex = document.querySelector('.ex');
 const log = document.querySelector('.log');
 const ne = document.querySelector('.ne');
 const wat = document.querySelector('.wat');
+const puaex = document.querySelector('.puaex');
+const wtpss = document.querySelector('.wtpuss')
+const pua = document.querySelector('.pua')
+const pw = document.querySelector('.pw')
 
-var ver = 'B-0.8.1';
+var ver = 'B-0.9.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -23,10 +27,13 @@ var selCos = '0'
 
 var wtuss = wat.innerHTML
 var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?'
+var wtpuss = `Makes Click Power Double For Thirty Seconds<br>This message wont show again`
 
 var mul = 10
 var mul2 = 10;
 var nxt = 0;
+
+var cbda = 0;
 
 var doco = 0;
 var doco1 = 0;
@@ -52,6 +59,21 @@ version.addEventListener('click', function () {
 ex.addEventListener('click', function () {
     change.style.opacity = 0;
     change.style.zIndex = 0;
+})
+
+puaex.addEventListener('click', function(){
+    pua.style.opacity = 0;
+    pua.style.zIndex = 0;
+})
+
+pw.addEventListener('click', function(){
+    if(cbda === 0){
+        cbda = 1;
+        wtpss.innerHTML = wtpuss;
+        pua.style.opacity = 1;
+        pua.style.zIndex = 2;
+        localStorage.setItem('cbda', cbda)
+    }
 })
 
 ne.addEventListener('click', function () {
@@ -91,6 +113,7 @@ function anim() {
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
     log.innerHTML = `Changelog: ${ver}`
+    cbda = localStorage.getItem('cbda')
 };
 
 var vh = document.innerHeight
@@ -263,7 +286,7 @@ document.onkeydown = function (e) {
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code:')
         if (coAns == code) {
-            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-4]`)
+            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-5]`)
             switch (ans) {
                 case ans = '1':
                     var total = ask(`Enter DogeCoin Needed.`)
@@ -287,6 +310,10 @@ document.onkeydown = function (e) {
                 case ans = '4':
                     a1 = 0;
                     localStorage.setItem('a1', a1)
+                    break;
+                case ans = '5':
+                    cbda = 0;
+                    localStorage.setItem('cbda', cbda)
                     break;
             }
 
