@@ -27,7 +27,7 @@ var selCos = '0'
 
 var wtuss = wat.innerHTML
 var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?'
-var wtpuss = `Makes Click Power Double For Thirty Seconds<br>This message wont show again`
+var wtpuss = `Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again`
 
 var mul = 10
 var mul2 = 10;
@@ -57,6 +57,8 @@ function createAlert(wts){
     pua.style.zIndex = 2;
 }
 
+var cbd = 1;
+
 function wait(time){
     setTimeout(function(){
      return;   
@@ -78,23 +80,26 @@ puaex.addEventListener('click', function(){
     pua.style.zIndex = 0;
 })
 
-pw.addEventListener('click', function(){
-    if(cbda === 0){
-        cbda = 1;
-        localStorage.setItem('cbda', cbda)
-        createAlert(wtpuss);
-        clipo = clipo * 2;
+pw.addEventListener('click', function(){  
+    if(cbd === 1){
+        pw.style.opacity = 0;
+        cbd = 0
+        clipo *= 2;
         cpwr.innerHTML = `Clickpower: ${clipo}`
-        wait(10000)
-        clipo = clipo / 2;
-        cpwr.innerHTML = `Clickpower: ${clipo}`
-        return;
-    }else{
-        clipo += clipo;
-        cpwr.innerHTML = `Clickpower: ${clipo}`
-        wait(10000)
-        clipo -= clipo;
-        return;
+        setTimeout(function(){
+            clipo /= 2;
+            cpwr.innerHTML = `Clickpower: ${clipo}`
+            setTimeout(function(){
+                cbd = 1;
+                pw.style.opacity = 1;
+            }, 60000)
+        }, 30000)
+        if(cbda === 0){
+            cbda = 1;
+            localStorage.setItem('cbda', cbda)
+            createAlert(wtpuss);
+            return;
+        }
     }
 })
 
