@@ -153,6 +153,7 @@ body{
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
+    padding-top: 0px;
     transform: translate(-50%, -50%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border: 10px solid #000;
@@ -177,7 +178,31 @@ body{
     border: 10px solid #000;
 }
 
+.puq{
+    height: 250px;
+    width: 500px;
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;
+}
+
 .puah1{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
+.puqh1{
     padding-top: 5px;
     padding-bottom: 15px;
     border-bottom: 10px solid #000;
@@ -223,6 +248,35 @@ body{
 
 }
 
+.puqyes{
+    width: 50%;
+    height: 50px;
+    border-top: 11px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    transform: translate(-50, 0);
+    border-right: 5px solid;
+}
+
+.puqno{
+    width: 50%;
+    height: 50px;
+    border-top: 11px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    right: 0;
+    transform: translate(-50, 0);
+    border-left: 5px solid;
+
+}
+
 .stats{
     height: calc(103vh - 60px);
     width: 16.5vw;
@@ -236,13 +290,13 @@ body{
 }
 
 .stats h1{
-    font-size: 40px;
+    font-size: 36px;
     padding-bottom: 25px;
     border-bottom: 10px solid #000;
 }
 
 .upgrades h1{
-    font-size: 30px;
+    font-size: 34.5px;
 }
 
 .u1{
@@ -556,6 +610,9 @@ body{
 
 .wat{
     overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .wat h1{

@@ -14,9 +14,13 @@ const log = document.querySelector('.log');
 const ne = document.querySelector('.ne');
 const wat = document.querySelector('.wat');
 const puaex = document.querySelector('.puaex');
-const wtpss = document.querySelector('.wtpuss')
-const pua = document.querySelector('.pua')
-const pw = document.querySelector('.pw')
+const puqyes = document.querySelector('.puqyes');
+const puqno = document.querySelector('.puqno');
+const wtpss = document.querySelector('.wtpuss');
+const wtpuqss = document.querySelector('.wtpuqss');
+const pua = document.querySelector('.pua');
+const puq = document.querySelector('.puq');
+const pw = document.querySelector('.pw');
 
 var ver = 'B-0.9.1';
 var page = window;
@@ -26,15 +30,13 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?'
+var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Power Ups Are Free For A Limited Time<br>5) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can '
 var wtpuss = `Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again`
 
 var mul = 10
 var mul2 = 10;
 var nxt = 0;
-
 var cbda = 0;
-
 var doco = 0;
 var doco1 = 0;
 var clipo = 1;
@@ -42,13 +44,14 @@ var clipes = 0;
 var cpsok = 0;
 let a1 = 0;
 
+let pwBought = '0';
+let qAns = -1;
 
 doge.addEventListener('click', function () {
     doco += clipo;
     dc.innerHTML = `DogeCoin: ${doco}`;
     localStorage.setItem('totalDc', doco)
     anim();
-    bark();
 });
 
 function createAlert(wts){
@@ -57,7 +60,14 @@ function createAlert(wts){
     pua.style.zIndex = 2;
 }
 
-var cbd = 1;
+function createQuestion(q){
+    wtpuqss.innerHTML = q;
+    puq.style.opacity = 1;
+    puq.style.zIndex = 2;
+    qAns = undefined;
+}
+
+var cbd = undefined;
 
 function wait(time){
     setTimeout(function(){
@@ -80,10 +90,110 @@ puaex.addEventListener('click', function(){
     pua.style.zIndex = 0;
 })
 
-pw.addEventListener('click', function(){  
-    if(cbd === 1){
+puqyes.addEventListener('click', function(){
+    puq.style.opacity = 0;
+    puq.style.zIndex = 0;
+    qAns = 1;
+})
+
+puqno.addEventListener('click', function(){
+    puq.style.opacity = 0;
+    puq.style.zIndex = 0;
+    qAns = 0;
+})
+
+
+
+pw.addEventListener('click', function(){ 
+    pwBought = localStorage.getItem('pw')
+    switch(pwBought){
+        default: break;
+        case '1': 
+            pw.style.opacity = 0;
+            cbd = 0
+            pwBought = true;
+            clipo *= 2;
+            cpwr.innerHTML = `Clickpower: ${clipo}`
+            setTimeout(function(){
+                clipo /= 2;
+                cpwr.innerHTML = `Clickpower: ${clipo}`
+                setTimeout(function(){
+                    cbd = 1;
+                    pw.style.opacity = 1;
+                }, 60000)
+            }, 30000)   
+            break;
+        case '0':
+            createQuestion('Would You Like To Buy The<br>PowerWash Upgrade For: 0 DogeCoin?')
+            if(qAns == 1){
+                if(doco >= 0){
+                    localStorage.setItem('pw', '1')
+                    if(cbd === 1){
+                        pw.style.opacity = 0;
+                        cbd = 0
+                        clipo *= 2;
+                        cpwr.innerHTML = `Clickpower: ${clipo}`
+                        setTimeout(function(){
+                            clipo /= 2;
+                            cpwr.innerHTML = `Clickpower: ${clipo}`
+                            setTimeout(function(){
+                                cbd = 1;
+                                pw.style.opacity = 1;
+                            }, 60000)
+                        }, 30000)
+                        if(cbda === 0){
+                            cbda = 1;
+                            localStorage.setItem('cbda', cbda)
+                            createAlert(wtpuss);
+                            return;
+                        }
+                    }
+                }else{
+                    createAlert('You Need More DogeCoin.')
+                }
+            }else{
+                qAns = qAns;
+            }
+            break;
+    }
+})
+
+/*
+ createQuestion('Would You Like To Buy The<br>PowerWash Upgrade For: 0 DogeCoin?')
+        if(qAns = 1){
+            if(doco >= 0){
+                if(cbd === 1){
+                    pw.style.opacity = 0;
+                    cbd = 0
+                    pwBought = true;
+                    localStorage.setItem('pw', 1)
+                    clipo *= 2;
+                    cpwr.innerHTML = `Clickpower: ${clipo}`
+                    setTimeout(function(){
+                        clipo /= 2;
+                        cpwr.innerHTML = `Clickpower: ${clipo}`
+                        setTimeout(function(){
+                            cbd = 1;
+                            pw.style.opacity = 1;
+                        }, 60000)
+                    }, 30000)
+                    if(cbda === 0){
+                        cbda = 1;
+                        localStorage.setItem('cbda', cbda)
+                        createAlert(wtpuss);
+                        return;
+                    }
+                }
+            }else{
+                createAlert('You Need More DogeCoin.')
+            }
+        }else{
+            qAns = qAns;
+        }
+    }else{
         pw.style.opacity = 0;
         cbd = 0
+        pwBought = true;
         clipo *= 2;
         cpwr.innerHTML = `Clickpower: ${clipo}`
         setTimeout(function(){
@@ -94,14 +204,7 @@ pw.addEventListener('click', function(){
                 pw.style.opacity = 1;
             }, 60000)
         }, 30000)
-        if(cbda === 0){
-            cbda = 1;
-            localStorage.setItem('cbda', cbda)
-            createAlert(wtpuss);
-            return;
-        }
-    }
-})
+*/
 
 ne.addEventListener('click', function () {
     if (nxt === 0) {
@@ -115,7 +218,7 @@ ne.addEventListener('click', function () {
         ne.innerHTML = 'Next'
         wat.innerHTML = '';
         wat.innerHTML = wtuss;
-        log.innerHTML = `Changelog: ${ver}`
+        log.innerHTML = `Current Version: ${ver}`
     }
 })
 
@@ -139,7 +242,7 @@ function anim() {
 
 function loadVersion() {
     version.innerHTML = `Version: ${ver}`
-    log.innerHTML = `Changelog: ${ver}`
+    log.innerHTML = `Current Version: ${ver}`
     cbda = localStorage.getItem('cbda')
 };
 
@@ -313,7 +416,7 @@ document.onkeydown = function (e) {
             switch (ans) {
                 case ans = '1':
                     var total = ask(`Enter DogeCoin Needed.`)
-                    doco += abs(total);
+                    doco += Math.floor(total);
                     dc.innerHTML = `DogeCoin: ${doco}`;
                     localStorage.setItem('totalDc', doco)
                     break;
@@ -331,8 +434,7 @@ document.onkeydown = function (e) {
                     reload();
                     break;
                 case ans = '4':
-                    a1 = 0;
-                    localStorage.setItem('a1', a1)
+                    localStorage.setItem('pw', '0')
                     break;
                 case ans = '5':
                     cbda = 0;
