@@ -291,6 +291,3 @@ cosData.addEventListener('click', function(){
             selCos = selCos;
     };
 })
-
-let coodee = 1807;
-localStorage.setItem('code', coodee);

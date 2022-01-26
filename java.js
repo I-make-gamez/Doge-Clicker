@@ -22,7 +22,7 @@ const pua = document.querySelector('.pua');
 const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
 
-var ver = 'B-0.9.1';
+var ver = 'B-0.9.2';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -45,7 +45,7 @@ var cpsok = 0;
 let a1 = 0;
 
 let pwBought = '0';
-let qAns = -1;
+let qAns = '-1';
 
 doge.addEventListener('click', function () {
     doco += clipo;
@@ -54,24 +54,23 @@ doge.addEventListener('click', function () {
     anim();
 });
 
-function createAlert(wts){
+function createAlert(wts) {
     wtpss.innerHTML = wts;
     pua.style.opacity = 1;
     pua.style.zIndex = 2;
 }
 
-function createQuestion(q){
+function createQuestion(q) {
     wtpuqss.innerHTML = q;
     puq.style.opacity = 1;
     puq.style.zIndex = 2;
-    qAns = undefined;
 }
 
 var cbd = undefined;
 
-function wait(time){
-    setTimeout(function(){
-     return;   
+function wait(time) {
+    setTimeout(function () {
+        return;
     }, time)
 }
 
@@ -80,131 +79,79 @@ version.addEventListener('click', function () {
     change.style.zIndex = 2;
 })
 
+function yes() {
+    localStorage.setItem('qAns', 'yes')
+    qAns = localStorage.getItem('qAns')
+}
+
+function no() {
+    localStorage.setItem('qAns', 'no')
+    qAns = localStorage.getItem('qAns')
+}
+
 ex.addEventListener('click', function () {
     change.style.opacity = 0;
     change.style.zIndex = 0;
 })
 
-puaex.addEventListener('click', function(){
+puaex.addEventListener('click', function () {
     pua.style.opacity = 0;
     pua.style.zIndex = 0;
 })
 
-puqyes.addEventListener('click', function(){
+puqyes.addEventListener('click', function () {
     puq.style.opacity = 0;
     puq.style.zIndex = 0;
-    qAns = 1;
+    yes();
 })
 
-puqno.addEventListener('click', function(){
+puqno.addEventListener('click', function () {
     puq.style.opacity = 0;
     puq.style.zIndex = 0;
-    qAns = 0;
+    no();
 })
 
 
 
-pw.addEventListener('click', function(){ 
+pw.addEventListener('click', function () {
     pwBought = localStorage.getItem('pw')
-    switch(pwBought){
+    switch (pwBought) {
         default: break;
-        case '1': 
+        case '1':
             pw.style.opacity = 0;
             cbd = 0
             pwBought = true;
             clipo *= 2;
             cpwr.innerHTML = `Clickpower: ${clipo}`
-            setTimeout(function(){
+            setTimeout(function () {
                 clipo /= 2;
                 cpwr.innerHTML = `Clickpower: ${clipo}`
-                setTimeout(function(){
+                setTimeout(function () {
                     cbd = 1;
                     pw.style.opacity = 1;
                 }, 60000)
-            }, 30000)   
+            }, 30000)
             break;
         case '0':
-            createQuestion('Would You Like To Buy The<br>PowerWash Upgrade For: 0 DogeCoin?')
-            if(qAns == 1){
-                if(doco >= 0){
-                    localStorage.setItem('pw', '1')
-                    if(cbd === 1){
-                        pw.style.opacity = 0;
-                        cbd = 0
-                        clipo *= 2;
-                        cpwr.innerHTML = `Clickpower: ${clipo}`
-                        setTimeout(function(){
-                            clipo /= 2;
-                            cpwr.innerHTML = `Clickpower: ${clipo}`
-                            setTimeout(function(){
-                                cbd = 1;
-                                pw.style.opacity = 1;
-                            }, 60000)
-                        }, 30000)
-                        if(cbda === 0){
-                            cbda = 1;
-                            localStorage.setItem('cbda', cbda)
-                            createAlert(wtpuss);
-                            return;
-                        }
-                    }
-                }else{
-                    createAlert('You Need More DogeCoin.')
-                }
-            }else{
-                qAns = qAns;
-            }
-            break;
-    }
-})
-
-/*
- createQuestion('Would You Like To Buy The<br>PowerWash Upgrade For: 0 DogeCoin?')
-        if(qAns = 1){
-            if(doco >= 0){
-                if(cbd === 1){
-                    pw.style.opacity = 0;
-                    cbd = 0
-                    pwBought = true;
-                    localStorage.setItem('pw', 1)
-                    clipo *= 2;
-                    cpwr.innerHTML = `Clickpower: ${clipo}`
-                    setTimeout(function(){
-                        clipo /= 2;
-                        cpwr.innerHTML = `Clickpower: ${clipo}`
-                        setTimeout(function(){
-                            cbd = 1;
-                            pw.style.opacity = 1;
-                        }, 60000)
-                    }, 30000)
-                    if(cbda === 0){
+            createQuestion('Would You Like To Buy The<br>PowerWash Powerup For: 0 DogeCoin?')
+            if (qAns == 'yes') {
+                if (doco >= 0) {
+                    if (cbda === 0) {
                         cbda = 1;
                         localStorage.setItem('cbda', cbda)
                         createAlert(wtpuss);
                         return;
                     }
+                    localStorage.setItem('pw', '1')
+                } else {
+                    createAlert('You Need More DogeCoin.')
                 }
-            }else{
-                createAlert('You Need More DogeCoin.')
+            } else if (qAns === 'no') {
+                return;
             }
-        }else{
-            qAns = qAns;
-        }
-    }else{
-        pw.style.opacity = 0;
-        cbd = 0
-        pwBought = true;
-        clipo *= 2;
-        cpwr.innerHTML = `Clickpower: ${clipo}`
-        setTimeout(function(){
-            clipo /= 2;
-            cpwr.innerHTML = `Clickpower: ${clipo}`
-            setTimeout(function(){
-                cbd = 1;
-                pw.style.opacity = 1;
-            }, 60000)
-        }, 30000)
-*/
+            break;
+    }
+})
 
 ne.addEventListener('click', function () {
     if (nxt === 0) {
@@ -224,7 +171,7 @@ ne.addEventListener('click', function () {
 
 function rnd(min, max) {
     return Math.random() * (max - min) + min;
-  }
+}
 
 function anim() {
     selCos = localStorage.getItem('cos')
@@ -244,6 +191,7 @@ function loadVersion() {
     version.innerHTML = `Version: ${ver}`
     log.innerHTML = `Current Version: ${ver}`
     cbda = localStorage.getItem('cbda')
+    createAlert(`Check out the new <a style="color: yellow;" href="https://www.reddit.com/r/dogeclicker">Subreddit</a>`)
 };
 
 var vh = document.innerHeight
@@ -251,11 +199,11 @@ var vw = document.innerWidth
 
 function cpsGo() {
     setInterval(function () {
-        if(a1 === 1){
+        if (a1 === 1) {
             doco += clipes;
             dc.innerHTML = `DogeCoin: ${doco}`;
             anim();
-        }else{
+        } else {
             a1 = 0;
             localStorage.setItem('a1', a1)
         }
@@ -288,7 +236,6 @@ function loadData() {
 };
 
 function loadDogeCos() {
-    const code = '1807';
     selCos = localStorage.getItem('cos')
     switch (selCos) {
         case '0':
@@ -314,13 +261,13 @@ function loadDogeCos() {
         case '4':
             doge.style.content = 'url(./Assets/cheems.png)'
             doge.style.width = 'auto'
-            doge.style.border ='0px solid #000'
+            doge.style.border = '0px solid #000'
     }
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
 
-let code = localStorage.getItem('code')
+let code = 1807;
 
 function deleteData() {
     let ans = ask("Are you sure?\n[Y|N]")
@@ -412,6 +359,42 @@ document.onkeydown = function (e) {
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code:')
         if (coAns == code) {
+            let fans = ask('Enter Command, followed by an\nInteger (if needed)')
+            let ans = fans.split(' ');
+            switch (ans[0]) {
+                default: break;
+                case '1':
+                    var total = Math.floor(ans[1]);
+                    doco += total;
+                    dc.innerHTML = `DogeCoin: ${doco}`;
+                    localStorage.setItem('totalDc', doco)
+                    break;
+                case '2':
+                    var total = Math.floor(ans[1]);
+                    clipo += total;
+                    cpwr.innerHTML = `Clickpower: ${clipo}`
+                    localStorage.setItem('clickpower', clipo)
+                    break;
+                case '3':
+                    var total = Math.floor(ans[1]);
+                    clipes += total;
+                    localStorage.setItem('clipes', clipes)
+                    cps.innerHTML = `Clicks Per Second: ${clipes}`
+                    reload();
+                    break;
+                case '4':
+                    localStorage.setItem('pw', '0')
+                    cbda = 0;
+                    localStorage.setItem('cbda', cbda)
+                    break;
+            }
+        }
+    }
+};
+
+/*
+var coAns = ask('Enter Admin Code:')
+        if (coAns == code) {
             let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-5]`)
             switch (ans) {
                 case ans = '1':
@@ -426,23 +409,18 @@ document.onkeydown = function (e) {
                     cpwr.innerHTML = `Clickpower: ${clipo}`
                     localStorage.setItem('clickpower', clipo)
                     break;
-                case ans = '3':
-                    var total = ask(`Enter CPS Needed`)
-                    clipes += abs(total)
+                case '3':
+                    var total = Math.floor(ans[1]);
+                    clipes += total;
                     cps.innerHTML = `Clicks Per Second: ${clipes}`
                     localStorage.setItem('clipes', clipes)
                     reload();
                     break;
-                case ans = '4':
+                case '4':
                     localStorage.setItem('pw', '0')
-                    break;
-                case ans = '5':
                     cbda = 0;
                     localStorage.setItem('cbda', cbda)
                     break;
             }
-
-        }
-
-    }
-};
+        
+*/
