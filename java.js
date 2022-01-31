@@ -22,7 +22,7 @@ const pua = document.querySelector('.pua');
 const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
 
-var ver = 'B-0.9.3';
+var ver = 'B-0.9.3-MF_02';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -194,7 +194,12 @@ function loadVersion() {
     version.innerHTML = `Version: ${ver}`
     log.innerHTML = `Current Version: ${ver}`
     cbda = localStorage.getItem('cbda')
-    createAlert(`Check out the new <a style="color: yellow;" href="https://www.reddit.com/r/dogeclicker">Subreddit</a>`)
+    var acbda = localStorage.getItem('acbda')
+    if(acbda = 0){
+        createAlert(`Check out the new <a style="color: yellow;" href="https://www.reddit.com/r/dogeclicker">Subreddit</a>`)
+        acbda = 1;
+        localStorage.setItem('acbda', acbda)
+    }
 };
 
 var vh = document.innerHeight
