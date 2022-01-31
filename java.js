@@ -22,7 +22,7 @@ const pua = document.querySelector('.pua');
 const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
 
-var ver = 'B-0.9.2';
+var ver = 'B-0.9.3';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -30,7 +30,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Power Ups Are Free For A Limited Time<br>5) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can '
+var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can '
 var wtpuss = `Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again`
 
 var mul = 10
@@ -133,9 +133,12 @@ pw.addEventListener('click', function () {
             }, 30000)
             break;
         case '0':
-            createQuestion('Would You Like To Buy The<br>PowerWash Powerup For: 0 DogeCoin?')
+            createQuestion('Would You Like To Buy The<br>PowerWash Powerup For: 100K DogeCoin?')
             if (qAns == 'yes') {
-                if (doco >= 0) {
+                if (doco >= 100000) {
+                    doco-=100000
+                    dc.innerHTML = `DogeCoin: ${doco}`;
+                    localStorage.setItem('totalDc', doco)
                     if (cbda === 0) {
                         cbda = 1;
                         localStorage.setItem('cbda', cbda)
@@ -357,26 +360,25 @@ u5.addEventListener('click', function () {
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        var coAns = ask('Enter Admin Code:')
-        if (coAns == code) {
-            let fans = ask('Enter Command, followed by an\nInteger (if needed)')
-            let ans = fans.split(' ');
-            switch (ans[0]) {
+        var coAns = ask('Enter Admin Code\nThen Command ID\nThen Value(if any)')
+        var coAns2 = coAns.split(" ")
+        if (coAns2[0] == code) {
+            switch (coAns2[1]) {
                 default: break;
                 case '1':
-                    var total = Math.floor(ans[1]);
+                    var total = Math.floor(coAns2[2]);
                     doco += total;
                     dc.innerHTML = `DogeCoin: ${doco}`;
                     localStorage.setItem('totalDc', doco)
                     break;
                 case '2':
-                    var total = Math.floor(ans[1]);
+                    var total = Math.floor(coAns2[2]);
                     clipo += total;
                     cpwr.innerHTML = `Clickpower: ${clipo}`
                     localStorage.setItem('clickpower', clipo)
                     break;
                 case '3':
-                    var total = Math.floor(ans[1]);
+                    var total = Math.floor(coAns2[2]);
                     clipes += total;
                     localStorage.setItem('clipes', clipes)
                     cps.innerHTML = `Clicks Per Second: ${clipes}`
@@ -393,34 +395,5 @@ document.onkeydown = function (e) {
 };
 
 /*
-var coAns = ask('Enter Admin Code:')
-        if (coAns == code) {
-            let ans = ask(`Hello, You've reached the admin menu.\nEnter a number [1-5]`)
-            switch (ans) {
-                case ans = '1':
-                    var total = ask(`Enter DogeCoin Needed.`)
-                    doco += Math.floor(total);
-                    dc.innerHTML = `DogeCoin: ${doco}`;
-                    localStorage.setItem('totalDc', doco)
-                    break;
-                case ans = '2':
-                    var total = ask(`Enter Clickpower Needed`)
-                    clipo += abs(total);
-                    cpwr.innerHTML = `Clickpower: ${clipo}`
-                    localStorage.setItem('clickpower', clipo)
-                    break;
-                case '3':
-                    var total = Math.floor(ans[1]);
-                    clipes += total;
-                    cps.innerHTML = `Clicks Per Second: ${clipes}`
-                    localStorage.setItem('clipes', clipes)
-                    reload();
-                    break;
-                case '4':
-                    localStorage.setItem('pw', '0')
-                    cbda = 0;
-                    localStorage.setItem('cbda', cbda)
-                    break;
-            }
-        
+
 */
