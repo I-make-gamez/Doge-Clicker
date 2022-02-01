@@ -21,8 +21,10 @@ const wtpuqss = document.querySelector('.wtpuqss');
 const pua = document.querySelector('.pua');
 const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
+const obtwct = document.querySelector('.obtwct')
+const dfp = document.querySelector('.dfp')
 
-var ver = 'B-0.9.3-MF_02';
+var ver = 'B-0.9.4';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -30,7 +32,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can '
+var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>5) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will egt an alert.'
 var wtpuss = `Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again`
 
 var mul = 10
@@ -43,6 +45,7 @@ var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
 let a1 = 0;
+let dfPrice = 100;
 
 let pwBought = '0';
 let qAns = '-1';
@@ -275,7 +278,10 @@ function loadDogeCos() {
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
 };
 
-let code = 1807;
+let codes = [
+    1807, 
+    'beta'
+];
 
 function deleteData() {
     let ans = ask("Are you sure?\n[Y|N]")
@@ -311,6 +317,12 @@ u1.addEventListener('click', function () {
         dc.innerHTML = `DogeCoin: ${doco}`;
         localStorage.setItem('clickpower', clipo);
         cpwr.innerHTML = `Clickpower: ${clipo}`
+        switch(beta){
+            case 'off': break;
+            case 'on': 
+                dfPrice = dfPrice + ((dfPrice/100)*10);
+                dfp.innerHTML = `Cost: ${dfPrice}DC`
+        }
     }
 });
 
@@ -362,12 +374,14 @@ u5.addEventListener('click', function () {
     }
 })
 
+
+let beta = 'off'
 document.onkeydown = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code\nThen Command ID\nThen Value(if any)')
         var coAns2 = coAns.split(" ")
-        if (coAns2[0] == code) {
+        if (coAns2[0] == codes[0]) {
             switch (coAns2[1]) {
                 default: break;
                 case '1':
@@ -395,6 +409,12 @@ document.onkeydown = function (e) {
                     localStorage.setItem('cbda', cbda)
                     break;
             }
+            //BETA TESTING 
+        }else if(coAns2[0] == codes[1]){
+            createAlert('Beta Testing Engaged<br>Features Include:<br>1) Price Stacking<br>2) New Powerups')
+            beta = 'on'
+            obtwct.innerHTML = "BETA TESTERS: Report Bugs Here"
+            obtwct.href = './'
         }
     }
 };
