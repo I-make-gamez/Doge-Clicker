@@ -24,7 +24,7 @@ const pw = document.querySelector('.pw');
 const obtwct = document.querySelector('.obtwct')
 const dfp = document.querySelector('.dfp')
 
-var ver = 'B-0.9.4';
+var ver = 'B-0.9.4-MF_03';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;

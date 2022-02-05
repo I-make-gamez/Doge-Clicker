@@ -1,5 +1,6 @@
 html{
     height: 100%;
+    width: 100%;
     user-select: none;
 }
 
@@ -77,11 +78,12 @@ body{
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-right: 10px solid #000;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .pu{
     z-index: -1;
-    height: 100px;
+    height: 10vh;
     width: 67vw;
     position: fixed;
     left: 17%;
@@ -111,6 +113,7 @@ body{
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-right: 10px solid #000;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .sc{
@@ -123,6 +126,8 @@ body{
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-left: 10px solid #000;
     overflow-y: scroll;
+    overflow-x: hidden;
+
 }
 
 
@@ -162,7 +167,7 @@ body{
 }
 
 .pua{
-    height: 250px;
+    height: 500px;
     width: 500px;
     opacity: 0;
     z-index: 0;
@@ -177,7 +182,7 @@ body{
     transform: translate(-50%, -50%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border: 10px solid #000;
-    overflow-y: scroll;
+
 }
 
 .puq{
@@ -289,6 +294,7 @@ body{
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-left: 10px solid #000;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .stats h1{
@@ -361,8 +367,8 @@ body{
     border-top: 10px solid #000;
     position: fixed;
     bottom: 0;
-    left: 1%;
-    transform: translate(-1%, 0);
+    left: 0%;
+    transform: translate(0%, 0);
   }
 
   .nav-bar a {
@@ -399,12 +405,12 @@ body{
       font-size: 25px;
       font-family: cursive;
       color: white;
-      width: 250px;
+      width: 17vw;
       padding: 25px;
       position: fixed;
-      bottom: 3%;
+      bottom: 1%;
       left: 125px;
-      transform: translate(-125px, 3%);
+      transform: translate(-125px, 0%);
       border-top: 10px solid #000;
       border-left: 1px solid #000;
       background: radial-gradient(#761212 0%, #ce0808 100%);
@@ -619,4 +625,8 @@ body{
 
 .wat h1{
     padding: 0;
+}
+
+.wtpuss{
+    font-size: 30px;
 }
