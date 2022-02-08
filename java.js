@@ -24,6 +24,11 @@ const pw = document.querySelector('.pw');
 const obtwct = document.querySelector('.obtwct')
 const dfp = document.querySelector('.dfp')
 
+//TO DO
+//1) MJ Doge (for hunter)
+//2) Price Stack other upgrades
+//3) Get Rid Of Reload On DF For cpsGo()
+
 var ver = 'B-0.9.4-MF_04';
 var page = window;
 const ask = page.prompt;
