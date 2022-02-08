@@ -24,7 +24,7 @@ const pw = document.querySelector('.pw');
 const obtwct = document.querySelector('.obtwct')
 const dfp = document.querySelector('.dfp')
 
-var ver = 'B-0.9.4-MF_03';
+var ver = 'B-0.9.4-MF_04';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -163,13 +163,13 @@ ne.addEventListener('click', function () {
     if (nxt === 0) {
         nxt = 1
         ne.innerHTML = 'Back'
-        wat.innerHTML = '';
+        wat.innerHTML = null;
         wat.innerHTML = wtass;
         log.innerHTML = `Alerts for ${ver}`
     } else if (nxt === 1) {
         nxt = 0
         ne.innerHTML = 'Next'
-        wat.innerHTML = '';
+        wat.innerHTML = null;
         wat.innerHTML = wtuss;
         log.innerHTML = `Current Version: ${ver}`
     }
@@ -197,12 +197,6 @@ function loadVersion() {
     version.innerHTML = `Version: ${ver}`
     log.innerHTML = `Current Version: ${ver}`
     cbda = localStorage.getItem('cbda')
-    var acbda = localStorage.getItem('acbda')
-    if(acbda = 0){
-        createAlert(`Check out the new <a style="color: yellow;" href="https://www.reddit.com/r/dogeclicker">Subreddit</a>`)
-        acbda = 1;
-        localStorage.setItem('acbda', acbda)
-    }
 };
 
 var vh = document.innerHeight
@@ -411,7 +405,8 @@ document.onkeydown = function (e) {
             }
             //BETA TESTING 
         }else if(coAns2[0] == codes[1]){
-            createAlert('Beta Testing Engaged<br>Features Include:<br>1) Price Stacking<br>2) New Powerups')
+            createAlert(`Beta Testing Engaged<br>Features Include:<br>1) Price Stacking<br>2) New Powerups`);
+            wtpss.style.height = '150px'
             beta = 'on'
             obtwct.innerHTML = "BETA TESTERS: Report Bugs Here"
             obtwct.href = './'

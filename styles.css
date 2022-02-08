@@ -167,7 +167,7 @@ body{
 }
 
 .pua{
-    height: 500px;
+    height: auto;
     width: 500px;
     opacity: 0;
     z-index: 0;
@@ -628,5 +628,9 @@ body{
 }
 
 .wtpuss{
-    font-size: 30px;
+    font-size: auto;
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
