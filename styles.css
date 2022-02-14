@@ -12,6 +12,8 @@ body{
 
 .pw{
     z-index: 1;
+    width: 100px;
+    height: inherit;
 }
 
 .doge{
@@ -91,7 +93,7 @@ body{
     transform: translate(-25px, -50);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-bottom: 10px solid #000;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .pudiv{
@@ -167,7 +169,7 @@ body{
 }
 
 .pua{
-    height: auto;
+    height: 250px;
     width: 500px;
     opacity: 0;
     z-index: 0;
@@ -182,7 +184,7 @@ body{
     transform: translate(-50%, -50%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border: 10px solid #000;
-
+    overflow-y: hidden;
 }
 
 .puq{
@@ -200,7 +202,8 @@ body{
     padding-top: 0px;
     transform: translate(-50%, -50%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
-    border: 10px solid #000;
+    border: 10px solid #000;    
+    overflow-y: hidden;
 }
 
 .puah1{
@@ -472,13 +475,22 @@ body{
     border: 5px solid #000;
 }
 
+.c5 h1{
+    font-size: 25px;
+}
+.c5{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#12763f 0%, #08ce72 100%);
+}
 
 .HD{
     opacity: 0;
     width: 16.5vw;
     border-top: 1px solid #000;
     border-bottom: 10px solid #000;
-    background: radial-gradient(#381276 0%, #5408ce 100%);
+    background: radial-gradient(#5f1276 0%, #a008ce 100%);
 }
 
 .CH{
@@ -560,6 +572,27 @@ body{
     font-size: 25px;
 }
 
+.PXD{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#507612 0%, #93ce08 100%);
+}
+
+.PXD h1{
+    font-size: 25px;
+}
+
+.PXD h1{
+    font-size: 25px;
+}
+
+.PXD h2{
+    margin-bottom: 2px;
+}
+
+
 .HDh6{
     opacity:0;
     margin: 3px;
@@ -573,6 +606,12 @@ body{
 }
 
 .DoCh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.PXDh6{
     opacity:0;
     margin: 3px;
     color: white;
@@ -617,7 +656,7 @@ body{
 }
 
 .wat{
-    overflow-y: scroll;
+    overflow-y: hidden;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
@@ -629,7 +668,8 @@ body{
 
 .wtpuss{
     font-size: auto;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    height: inherit;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;

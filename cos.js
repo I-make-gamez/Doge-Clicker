@@ -2,8 +2,10 @@ const c1 = document.querySelector('.c1')
 const c2 = document.querySelector('.c2')
 const c3 = document.querySelector('.c3')
 const c4 = document.querySelector('.c4')
+const c5 = document.querySelector('.c5')
 const D = document.querySelector('.D')
 const HD = document.querySelector('.HD')
+const PXD = document.querySelector('.PXD')
 const FD = document.querySelector('.FD')
 const DoC = document.querySelector('.DoC')
 const CH = document.querySelector('.CH')
@@ -14,6 +16,7 @@ const HDh6 = document.querySelector('.HDh6')
 const FDh6 = document.querySelector('.FDh6')
 const DoCh6 = document.querySelector('.DoCh6')
 const CHh6 = document.querySelector('.CHh6')
+const PXDh6 = document.querySelector('.PXDh6')
 const cosData = document.querySelector('.cosData')
 
 var selCos = '0';
@@ -21,6 +24,7 @@ let c1Un = false;
 let c2Un = false;
 let c3Un = false;
 let c4Un = false;
+let c5Un = false;
 
 function checkC2(){
     switch(c2Un){
@@ -52,9 +56,22 @@ function checkC4(){
     switch(c4Un){
         case true:
             CH.style.opacity = 1;
+            checkC5();
             break;
         case false:
             CH.style.opacity = 0;
+            checkC5();
+            break;
+    }
+}
+
+function checkC5(){
+    switch(c5Un){
+        case true:
+            PXD.style.opacity = 1;
+            break;
+        case false:
+            PXD.style.opacity = 0;
             break;
     }
 }
@@ -65,6 +82,7 @@ function loadCosData() {
     c2Un = JSON.parse(localStorage.getItem('c2Un'))
     c3Un = JSON.parse(localStorage.getItem('c3Un'))
     c4Un = JSON.parse(localStorage.getItem('c4Un'))
+    c5Un = JSON.parse(localStorage.getItem('c5Un'))
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
     switch(selCos){
@@ -77,6 +95,7 @@ function loadCosData() {
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
             CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             break;
         case '1':
             HD.style.opacity = 1;
@@ -88,6 +107,7 @@ function loadCosData() {
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
             CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             break;
         case '2':
             FD.style.opacity = 1;
@@ -99,6 +119,7 @@ function loadCosData() {
             FDh6.style.opacity = 1;
             DoCh6.style.opacity = 0;
             CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             break;
         case '3':
             DoC.style.opacity = 1;
@@ -110,6 +131,7 @@ function loadCosData() {
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 1;
             CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             break;
         case '4':
             CH.style.opacity = 1;
@@ -120,7 +142,22 @@ function loadCosData() {
             Dh6.style.opacity = 0;
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             CHh6.style.opacity = 1;
+            break;
+        case '5':
+            PXD.style.opacity = 1;
+            dogeCos.style.content = 'url(./Assets/pxDoge.png)'
+            dogeCos.style.width = 'auto'
+            dogeCos.style.border = 'none'
+            HDh6.style.opacity = 0;
+            Dh6.style.opacity = 0;
+            FDh6.style.opacity = 0;
+            DoCh6.style.opacity = 0;
+            CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 1;
+
+
             break;
     }
     switch(c1Un){
@@ -186,6 +223,18 @@ c4.addEventListener('click', function(){
         localStorage.setItem('c4Un', c4Un)
     }
 })
+c5.addEventListener('click', function(){
+    doco1 = Math.abs(localStorage.getItem('totalDc'));
+    if(doco1 >= 500000){
+        PXD.style.opacity = 1;
+        doco1 = Math.abs(localStorage.getItem('totalDc'));
+        doco1 -= 500000
+        dcCos.innerHTML = `DogeCoin: ${doco1}`;
+        localStorage.setItem('totalDc', doco1)
+        c5Un = true;
+        localStorage.setItem('c5Un', c5Un)
+    }
+})
 
 HD.addEventListener('click', function(){
     if(HD.style.opacity == 1){
@@ -198,6 +247,7 @@ HD.addEventListener('click', function(){
         FDh6.style.opacity = 0;
         DoCh6.style.opacity = 0;
         CHh6.style.opacity = 0;
+        PXDh6.style.opacity = 0;
 
     }
 });
@@ -213,6 +263,8 @@ CH.addEventListener('click', function(){
         FDh6.style.opacity = 0;
         DoCh6.style.opacity = 0;
         CHh6.style.opacity = 1;
+        PXDh6.style.opacity = 0;
+
     }
 });
 
@@ -227,6 +279,8 @@ DoC.addEventListener('click', function(){
         FDh6.style.opacity = 0;
         DoCh6.style.opacity = 1;
         CHh6.style.opacity = 0;
+        PXDh6.style.opacity = 0;
+
 
     }
 });
@@ -242,6 +296,8 @@ FD.addEventListener('click', function(){
         FDh6.style.opacity = 1;
         DoCh6.style.opacity = 0;
         CHh6.style.opacity = 0;
+        PXDh6.style.opacity = 0;
+
 
     }
 });
@@ -256,7 +312,25 @@ D.addEventListener('click', function(){
     FDh6.style.opacity = 0;
     DoCh6.style.opacity = 0;
     CHh6.style.opacity = 0;
+    PXDh6.style.opacity = 0;
 
+
+});
+
+PXD.addEventListener('click', function(){
+    if(PXD.style.opacity == 1){
+        localStorage.setItem('cos', '5')
+        dogeCos.style.content = 'url(./Assets/pxDoge.png)'
+        dogeCos.style.width = 'auto'
+        dogeCos.style.border = '0px solid #000'
+        HDh6.style.opacity = 0;
+        Dh6.style.opacity = 0;
+        FDh6.style.opacity = 0;
+        DoCh6.style.opacity = 0;
+        CHh6.style.opacity = 0;
+        PXDh6.style.opacity = 1;
+
+    }
 });
 
 cosData.addEventListener('click', function(){
@@ -271,7 +345,9 @@ cosData.addEventListener('click', function(){
             FDh6.style.opacity = 0;
             DoCh6.style.opacity = 0;
             CHh6.style.opacity = 0;
+            PXDh6.style.opacity = 0;
             HD.style.opacity = 0;
+            PXD.style.opacity = 0;
             FD.style.opacity = 0;
             DoC.style.opacity = 0;
             CH.style.opacity = 0;
@@ -285,6 +361,8 @@ cosData.addEventListener('click', function(){
             localStorage.removeItem('c3Un')
             c4Un = false;
             localStorage.removeItem('c4Un')
+            c5Un = false
+            localStorage.removeItem('c5Un')
 
             break;
         case 'n' || 'N':

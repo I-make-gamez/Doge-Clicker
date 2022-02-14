@@ -23,13 +23,14 @@ const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
 const obtwct = document.querySelector('.obtwct')
 const dfp = document.querySelector('.dfp')
+const dpp = document.querySelector('.dpp')
 
 //TO DO
 //1) MJ Doge (for hunter)
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = 'B-0.9.4-MF_04';
+var ver = '1.0.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -37,8 +38,9 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Planning smth big for end of beta<br>2) Working on animating some more costumes<br>3) Discord server, maybe?<br>4) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>5) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will egt an alert.'
-var wtpuss = `Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again`
+var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will get an alert.'
+var wtpuss = 'Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again'
+var betaTxt = 'Beta Testing Engaged<br>Beta Features:<br>1) Price Stacking<br>'
 
 var mul = 10
 var mul2 = 10;
@@ -51,6 +53,7 @@ var clipes = 0;
 var cpsok = 0;
 let a1 = 0;
 let dfPrice = 100;
+let dpPrice = 2000;
 
 let pwBought = '0';
 let qAns = '-1';
@@ -193,6 +196,12 @@ function anim() {
                 doge.style.content = "url(./Assets/DOGE.png)"
             }, 200)
             break;
+        case '5':
+            doge.style.content = "url(./Assets/pxDoge2.png)"
+            setTimeout(function () {
+                doge.style.content = "url(./Assets/pxDoge.png)"
+            }, 200)
+            break;
         default:
             break;
     }
@@ -272,6 +281,10 @@ function loadDogeCos() {
             doge.style.content = 'url(./Assets/cheems.png)'
             doge.style.width = 'auto'
             doge.style.border = '0px solid #000'
+        case '5':
+            doge.style.content = 'url(./Assets/pxDoge.png)'
+            doge.style.width = 'auto'
+            doge.style.border = '0px solid #000'
     }
     doco1 = Math.abs(localStorage.getItem('totalDc'));
     dcCos.innerHTML = `DogeCoin: ${doco1}`;
@@ -334,6 +347,12 @@ u2.addEventListener('click', function () {
         localStorage.setItem('clipes', clipes)
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
         cpsok = 1;
+        switch(beta){
+            case 'off': break;
+            case 'on': 
+                dpPrice = dpPrice + ((dfPrice/100)*10);
+                dpp.innerHTML = `Cost: ${dpPrice}DC`
+        }
         let a1 = 1;
         localStorage.setItem('a1', a1)
         reload();
@@ -410,8 +429,8 @@ document.onkeydown = function (e) {
             }
             //BETA TESTING 
         }else if(coAns2[0] == codes[1]){
-            createAlert(`Beta Testing Engaged<br>Features Include:<br>1) Price Stacking<br>2) New Powerups`);
-            wtpss.style.height = '150px'
+            createAlert(betaTxt);
+            pua.style.height = '250px;'
             beta = 'on'
             obtwct.innerHTML = "BETA TESTERS: Report Bugs Here"
             obtwct.href = './'
