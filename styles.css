@@ -40,7 +40,7 @@ body{
 }
 
 .dc{
-    font-size: 40px;
+    font-size: 4vw;
     position: fixed;
     top: 21%;
     left: 50%;
@@ -63,7 +63,7 @@ body{
 }
 
 .dcCos{
-    font-size: 40px;
+    font-size: 4vw;
     position: fixed;
     top: 15%;
     left: 50vw;
@@ -143,11 +143,11 @@ body{
 }
 
 .cos h1{
-    font-size: 30px;
+    font-size: 3vw;
 }
 
 .sc h1{
-    font-size: 30px;
+    font-size: 3vw;
 }
 
 .changes{
@@ -301,13 +301,13 @@ body{
 }
 
 .stats h1{
-    font-size: 36px;
+    font-size: 3vw;
     padding-bottom: 25px;
     border-bottom: 10px solid #000;
 }
 
 .upgrades h1{
-    font-size: 34.5px;
+    font-size: 3vw;
 }
 
 .u1{
@@ -381,7 +381,7 @@ body{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 2.2vw;
   }
 
   .nav-bar h1{
@@ -391,7 +391,7 @@ body{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 2.2vw;
   }
 
   .nav-bar a:hover {
@@ -452,7 +452,7 @@ body{
 }
 
 .c3 h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .c3 img{
@@ -460,11 +460,11 @@ body{
 }
 
 .c2 h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .c1 h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .c2 img{
@@ -476,7 +476,7 @@ body{
 }
 
 .c5 h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 .c5{
     width: 16.5vw;
@@ -533,7 +533,7 @@ body{
 }
 
 .DoC h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .FD img{
@@ -541,7 +541,7 @@ body{
 }
 
 .FD h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 
@@ -558,7 +558,7 @@ body{
 }
 
 .HD h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .D{
@@ -569,7 +569,7 @@ body{
     background: radial-gradient(#6f7612 0%, #ceaa08 100%);
 }
 .D h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .PXD{
@@ -581,11 +581,11 @@ body{
 }
 
 .PXD h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .PXD h1{
-    font-size: 25px;
+    font-size: 3.2vw;
 }
 
 .PXD h2{
@@ -634,7 +634,7 @@ body{
 }
 
 .delCosData{
-    font-size: 25px;
+    font-size: 3.2vw;
     font-family: cursive;
     color: white;
     width: 250px;

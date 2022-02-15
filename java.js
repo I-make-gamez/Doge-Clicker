@@ -30,7 +30,7 @@ const dpp = document.querySelector('.dpp')
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = '1.0.0';
+var ver = '1.1.0';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
