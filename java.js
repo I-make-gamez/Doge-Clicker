@@ -30,7 +30,7 @@ const dpp = document.querySelector('.dpp')
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = '1.1.0';
+var ver = '1.1.1';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -429,11 +429,14 @@ document.onkeydown = function (e) {
             }
             //BETA TESTING 
         }else if(coAns2[0] == codes[1]){
-            createAlert(betaTxt);
-            pua.style.height = '250px;'
-            beta = 'on'
-            obtwct.innerHTML = "BETA TESTERS: Report Bugs Here"
-            obtwct.href = './'
+            var ans2 = ask("Are you sure???\nYou're about to be sent\nTo another Website\n[Y|N]")
+            switch(ans2){
+                case 'Y':
+                    window.location.href = "https://i-make-gamez.github.io/Doge-Clicker-Remastered/"
+                    break;
+                case 'N':break;
+            }
+            
         }
     }
 };
