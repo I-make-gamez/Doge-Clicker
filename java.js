@@ -22,15 +22,13 @@ const pua = document.querySelector('.pua');
 const puq = document.querySelector('.puq');
 const pw = document.querySelector('.pw');
 const obtwct = document.querySelector('.obtwct')
-const dfp = document.querySelector('.dfp')
-const dpp = document.querySelector('.dpp')
 
 //TO DO
 //1) MJ Doge (for hunter)
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = '1.1.1';
+var ver = '1.2';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -40,7 +38,6 @@ var selCos = '0'
 var wtuss = wat.innerHTML
 var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will get an alert.'
 var wtpuss = 'Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again'
-var betaTxt = 'Beta Testing Engaged<br>Beta Features:<br>1) Price Stacking<br>'
 
 var mul = 10
 var mul2 = 10;
@@ -52,9 +49,6 @@ var clipo = 1;
 var clipes = 0;
 var cpsok = 0;
 let a1 = 0;
-let dfPrice = 100;
-let dpPrice = 2000;
-
 let pwBought = '0';
 let qAns = '-1';
 
@@ -429,7 +423,7 @@ document.onkeydown = function (e) {
             }
             //BETA TESTING 
         }else if(coAns2[0] == codes[1]){
-            var ans2 = ask("Are you sure???\nYou're about to be sent\nTo another Website\n[Y|N]")
+            var ans2 = ask("Are you sure??? You're about to be sent to another Website.\n[Y|N]")
             switch(ans2){
                 case 'Y':
                     window.location.href = "https://i-make-gamez.github.io/Doge-Clicker-Remastered/"
