@@ -1,6 +1,6 @@
 export default function Upgrades() {
   return (
-    <div className="w-[20vw] border-r-[7px] border-black text-black bg-gradient-radial from-red-800 to-red-600">
+    <div className="w-[20vw] border-r-[7px] border-black text-black bg-gradient-radial to-red-800 from-red-600">
       <h1 className="text-3xl font-semibold py-2 border-b-[7px] border-black">
         Upgrades
       </h1>

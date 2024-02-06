@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html {
+  user-select: none;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   text-align: center;
 }
