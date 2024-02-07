@@ -3,15 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import UserSearch from "./userSearch";
-
-function handleClick() {}
+import Settings from "./settings";
 
 export default function NavBar() {
-  const [show, setShow] = useState(false); // Initially set to false
+  const [user, setUser] = useState(false); // Initially set to false
+  const [settings, setSettings] = useState(false); // Initially set to false
 
   return (
     <div>
-      {show ? <UserSearch show={show} setShow={setShow} /> : null}
+      {user ? <UserSearch show={user} setShow={setUser} /> : null}
+      {settings ? <Settings show={settings} setShow={setSettings} /> : null}
+
       <div
         className={`flex items-center justify-start gap-2 text-2xl text-white border-t-[7px] border-black bg-gradient-to-r from-fuchsia-900 to-fuchsia-500 h-[12vh]`}
       >
@@ -27,17 +29,17 @@ export default function NavBar() {
           Avatar Selection
         </a>
         <a
-          onClick={() => setShow(!show)}
+          onClick={() => setUser(!user)}
           className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
         >
           User Search
         </a>
-        <Link
-          href={"/settings"}
+        <a
+          onClick={() => {setSettings(!settings)}}
           className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
         >
           Settings
-        </Link>
+        </a>
         <Link
           className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
           href="https://github.com/I-make-gamez/I-make-gamez"

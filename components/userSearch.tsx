@@ -18,6 +18,7 @@ export default function UserSearch({ show, setShow }: UserSearchProps) {
       username: formData.get("username"),
     };
 
+    setShow(false);
     router.replace(`/user/${rawFormData.username}`);
   }
 
