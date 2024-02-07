@@ -1,17 +1,30 @@
-import Image from "next/image"
+import Image from "next/image";
+import { useState } from "react";
 
 export default function MiddlePanel() {
-    return (
-        <div className="flex w-[60%] bg-gradient-radial flex-col h-full to-blue-300 from-cyan-600 items-center justify-center">
-        <h1 className="text-4xl font-semibold py-4 text-black">DogeCoin: 0</h1>
+  const [dogeSrc, setDogeSrc] = useState("/images/doge.png");
+
+  return (
+    <div className="flex w-[60%] bg-gradient-radial flex-col h-full to-[#08fbff] from-[#0076ff] items-center justify-center">
+      <h1 className="text-4xl static font-semibold py-4 text-black">
+        DogeCoin: 0
+      </h1>
+      <div className="w-[17vw] h-[17vw] flex items-center justify-center">
         <Image
           width={250}
           height={250}
-          className="doge w-[15vw] h-[15vw]"
+          className="w-[15vw] h-[15vw] active:w-[15.75vw] active:h-[15.75vw]"
           alt="doge"
-          src={"/images/doge.png"}
-          priority={true}
+          src={dogeSrc}
+          onClick={() => {
+            setDogeSrc("/images/dogeBark.png");
+            setTimeout(() => {
+              setDogeSrc("/images/doge.png");
+            }, 200);
+          }}
+          priority
         ></Image>
       </div>
-    )
+    </div>
+  );
 }

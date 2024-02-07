@@ -1,29 +1,63 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import UserSearch from "./userSearch";
+
+function handleClick() {}
 
 export default function NavBar() {
+  const [show, setShow] = useState(false); // Initially set to false
+
   return (
-    <div
-      className={`flex items-center justify-start gap-2 text-2xl text-white border-t-[7px] border-black bg-gradient-to-r from-fuchsia-900 to-fuchsia-500 h-[12vh]`}
-    >
-      <Link className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`} href="https://www.imakegamez.com">
-        IMG Home
-      </Link>
-      <a className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}>Avatar Selection</a>
-      <a className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}>User Search</a>
-      <a className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}>Settings</a>
-      <Link
-        className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
-        href="https://github.com/I-make-gamez/I-make-gamez"
+    <div>
+      {show ? <UserSearch show={show} setShow={setShow} /> : null}
+      <div
+        className={`flex items-center justify-start gap-2 text-2xl text-white border-t-[7px] border-black bg-gradient-to-r from-fuchsia-900 to-fuchsia-500 h-[12vh]`}
       >
-        Source Code
-      </Link>
-      <Link className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`} href="https://github.com/I-make-gamez">
-        IMG
-      </Link>
-      <Link className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`} href="https://discord.gg/7vnwbMr8ed">
-        Discord
-      </Link>
-      <a className={`h-full items-center flex`}>Version:</a>
+        <Link
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+          href="https://www.imakegamez.com"
+        >
+          IMG Home
+        </Link>
+        <a
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+        >
+          Avatar Selection
+        </a>
+        <a
+          onClick={() => setShow(!show)}
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+        >
+          User Search
+        </a>
+        <Link
+          href={"/settings"}
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+        >
+          Settings
+        </Link>
+        <Link
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+          href="https://github.com/I-make-gamez/I-make-gamez"
+        >
+          Source Code
+        </Link>
+        <Link
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+          href="https://github.com/I-make-gamez"
+        >
+          IMG
+        </Link>
+        <Link
+          className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
+          href="https://discord.gg/7vnwbMr8ed"
+        >
+          Discord
+        </Link>
+        <a className={`h-full items-center flex`}>Version:</a>
+      </div>
     </div>
   );
 }
