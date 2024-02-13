@@ -19,9 +19,9 @@ export default function NavBar() {
       >
         <Link
           className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}
-          href="https://www.imakegamez.com"
+          href="/"
         >
-          IMG Home
+          Home
         </Link>
         <a
           className={`hover:bg-white hover:text-black px-4 cursor-pointer h-full items-center flex`}

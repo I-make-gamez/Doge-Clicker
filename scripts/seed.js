@@ -12,13 +12,13 @@ async function seedUsers(client) {
                 id SERIAL PRIMARY KEY,
                 username TEXT NOT NULL UNIQUE,
                 password TEXT NOT NULL,
-                admin BOOLEAN NOT NULL
+                admin BOOLEAN NOT NULL,
                 dogecoin INTEGER,
                 clickpower INTEGER,
                 clicksper INTEGER,
                 avatar TEXT NOT NULL,
                 level INTEGER,
-                exp INTEGER,
+                exp INTEGER
             );
         `;
 
