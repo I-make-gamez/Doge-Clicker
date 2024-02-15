@@ -1,18 +1,31 @@
 import { fetchUser } from "@/lib/actions";
 import { User } from "@/lib/definitions";
-import { redirect } from "next/navigation";
 import NotFoundPage from "@/app/not-found";
+import Upgrades from "@/components/upgrades";
+import RightPanel from "@/components/right-panel";
+import UserMiddlePanel from "@/components/usermiddle";
 
-export default async function UserPage({ params }: { params: { user: string } }) {
+export default async function UserPage({
+  params,
+}: {
+  params: { user: string };
+}) {
   const user: User = await fetchUser(params.user);
-  return (
-    <div>
-      {(user === undefined ? <NotFoundPage /> : null)}
-      <title>{user?.username}</title>
-      <h1>{user?.username}</h1>
-      <h1>{user?.avatar}</h1>
-      <h1>{user?.id}</h1>
-      <h1>{user?.admin.toString()}</h1>
-    </div>
-  );
+  if (user === undefined) {
+    return <NotFoundPage />;
+  } else {
+    console.log(user)
+    return (
+      <div className="flex z-0 flex-row h-full">
+        <title>{user.username}</title>
+        <Upgrades></Upgrades>
+        <UserMiddlePanel
+          avatar={user.avatar}
+          username={user.username}
+          dogecoin={user.dogecoin}
+        />
+        <RightPanel></RightPanel>
+      </div>
+    );
+  }
 }

@@ -1,8 +1,6 @@
 const { db } = require("@vercel/postgres");
-const {
-  users
-} = require("../lib/placeholder-data");
-const bcrypt = require("bcrypt");
+const { users } = require("../lib/placeholder-data");
+const crypto = require("crypto");
 
 async function seedUsers(client) {
   try {
@@ -25,7 +23,7 @@ async function seedUsers(client) {
     console.log(`created users table`);
     const insertedUsers = await Promise.all(
       users.map(async (user) => {
-        const hashedPassword = await bcrypt.hash(user.password, 10);
+        const hashedPassword = hashPassword(user.password);
         return client.sql`
                 INSERT INTO users (username, password, admin, dogeCoin, clickPower, clicksPer, avatar, level, exp)
                 VALUES (${user.username}, ${hashedPassword}, ${user.admin}, ${user.dogeCoin}, ${user.clickPower}, ${user.clicksPer}, ${user.avatar}, ${user.level}, ${user.exp})
@@ -44,17 +42,23 @@ async function seedUsers(client) {
   }
 }
 
-  async function main() {
-    const client = await db.connect();
-  
-    await seedUsers(client);  
-    await client.end();
-  }
-  
-  main().catch((err) => {
-    console.error(
-      'An error occurred while attempting to seed the database:',
-      err,
-    );
-  });
-  
+// Function to hash the password using SHA-256
+function hashPassword(password) {
+  const hash = crypto.createHash('sha256');
+  hash.update(password);
+  return hash.digest('hex');
+}
+
+async function main() {
+  const client = await db.connect();
+
+  await seedUsers(client);  
+  await client.end();
+}
+
+main().catch((err) => {
+  console.error(
+    'An error occurred while attempting to seed the database:',
+    err,
+  );
+});

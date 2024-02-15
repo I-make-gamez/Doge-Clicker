@@ -37,6 +37,7 @@ export default function UserSearch({ show, setShow }: UserSearchProps) {
               className="flex-1 flex flex-col items-center justify-center w-full h-full bg-gradient-radial to-[#08fbff] from-[#0076ff]"
             >
               <input
+                required
                 type="text"
                 name="username"
                 id="userInput"

@@ -1,9 +1,13 @@
+"use client"
+
 import Image from "next/image";
 import { useState } from "react";
+import type { User } from "@/lib/definitions";
+import { fetchUser } from "@/lib/actions";
+import { GetServerSideProps } from "next";
 
-export default function MiddlePanel() {
+export default async function MiddlePanel({ user }) {
   const [dogeSrc, setDogeSrc] = useState("/images/doge.png");
-
   return (
     <div className="flex w-[60%] bg-gradient-radial flex-col h-full to-[#08fbff] from-[#0076ff] items-center justify-center">
       <h1 className="text-4xl static font-semibold py-4 text-black">
